@@ -1,0 +1,16 @@
+<% title "Tutorial" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @tutorial.title %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @tutorial.body %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_tutorial_path(@tutorial) %> |
+  <%= link_to "Destroy", @tutorial, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", tutorials_path %>
+</p>

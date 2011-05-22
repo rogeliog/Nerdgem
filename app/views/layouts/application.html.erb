@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nerdgem</title>
-    <%= stylesheet_link_tag :all %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
+    <%= yield(:head) %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <div style="float:right;">
+      <%if current_user%>
+        <%= link_to "Sign out", destroy_user_session_path%>
+      <%else%>
+        <%= link_to "Sign in", new_user_session_path%> |
+        <%= link_to "Register", new_user_registration_path%>
+      <%end%>
+      </div>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+    </div>
   </body>
 </html>

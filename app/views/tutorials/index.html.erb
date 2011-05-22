@@ -1,0 +1,19 @@
+<% title "Tutorials" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <% for tutorial in @tutorials %>
+    <tr>
+      <td><%= tutorial.title %></td>
+      <td><%= tutorial.body %></td>
+      <td><%= link_to "Show", tutorial %></td>
+      <td><%= link_to "Edit", edit_tutorial_path(tutorial) %></td>
+      <td><%= link_to "Destroy", tutorial, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Tutorial", new_tutorial_path %></p>
