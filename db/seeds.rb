@@ -1,7 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+system "gem list --remote | awk \'{print $1}\' >> #{RAILS_ROOT}/db/csv/gem_list"
+gems=File.open("#{RAILS_ROOT}/db/csv/gem_list")
+puts "Gems where fetched correctly\nStart seeeding"
+gems.each { |g| RubyGem.find_or_create_by_name(g.to_s[0..-2]) }

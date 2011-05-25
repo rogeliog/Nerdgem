@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'rake', '0.8.7'
 gem 'cancan'
+gem 'RedCloth'
 group :development do
   gem 'nifty-generators'
 end

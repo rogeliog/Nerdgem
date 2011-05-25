@@ -9,19 +9,43 @@
   </head>
   <body>
     <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <div style="float:right;">
-      <%if current_user%>
-        <%= link_to "Sign out", destroy_user_session_path%>
-      <%else%>
-        <%= link_to "Sign in", new_user_session_path%> |
-        <%= link_to "Register", new_user_registration_path%>
-      <%end%>
+
+      <div id="header">
+        <div id="top_menu">
+          <ul>
+            <li><%=link_to "Home", tutorials_path%></li>
+            <% if current_user %>
+              <li><%=link_to "Profile",edit_user_registration_path%></li>
+              <li><%=link_to "My tutorials", tutorials_path%></li>
+              <li><%=link_to "New tutorial", new_tutorial_path%></li>
+            <% end %>
+          </ul>
+        </div>
+        <div id="session_info">
+          <ul>
+            <%if current_user%>
+              <li><%= link_to "Sign out", destroy_user_session_path%></li>
+            <%else%>
+              <li><%= link_to "Sign in", new_user_session_path%></li>
+              <li><%= link_to "Register", new_user_registration_path%></li>
+            <%end%>
+          </ul>
+        </div>
       </div>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
+
+      <div id="content">
+
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+
+        <%= content_tag :h1, yield(:title) if show_title? %>
+        <%= yield %>
+      </div>
+
+    </div>
+    <div id="footer">
+      Created by Chino Guzman Inc.
     </div>
   </body>
 </html>

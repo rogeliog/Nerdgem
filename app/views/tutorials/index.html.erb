@@ -1,19 +1,11 @@
-<% title "Tutorials" %>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-  </tr>
-  <% for tutorial in @tutorials %>
-    <tr>
-      <td><%= tutorial.title %></td>
-      <td><%= tutorial.body %></td>
-      <td><%= link_to "Show", tutorial %></td>
-      <td><%= link_to "Edit", edit_tutorial_path(tutorial) %></td>
-      <td><%= link_to "Destroy", tutorial, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+<% title "Latest tutorials" %>
+<div  id="tutorial_wrapper">
+  <% @tutorials.each do |tutorial|%>
+    <div id="tutorial">
+      <h2><%= link_to tutorial.title, tutorial%></h2>
+      <p><%=h RedCloth.new(tutorial.formated_body).to_html %></p>
+    </div>
   <% end %>
-</table>
+  <div class="clear"></div>
+</div>
 
-<p><%= link_to "New Tutorial", new_tutorial_path %></p>

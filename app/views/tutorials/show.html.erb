@@ -1,16 +1,14 @@
-<% title "Tutorial" %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @tutorial.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @tutorial.body %>
-</p>
 
-<p>
+
+<div class="admin_lnks">
   <%= link_to "Edit", edit_tutorial_path(@tutorial) %> |
   <%= link_to "Destroy", @tutorial, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", tutorials_path %>
+</div>
+
+<h1><%= @tutorial.title %></h1>
+<p>
+<%= RedCloth.new(@tutorial.formated_body).to_html.html_safe %>
 </p>
+

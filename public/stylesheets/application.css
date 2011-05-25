@@ -2,6 +2,7 @@ body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  margin:0px;
 }
 
 a img {
@@ -19,27 +20,85 @@ a {
 }
 
 #container {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+  padding: 0px;
+  margin-top: 0px;
 }
 
+/* Header */
+#header {
+  width:100%;
+  background:#2c89a0;
+  background: -moz-linear-gradient(top,  #2c89a0 ,#3d9AB1 ,#2c89a0);
+  background: -webkit-linear-gradient(top,  #2c89a0 ,#3d9AB1 ,#2c89a0);
+  height:40px;
+  padding: 1px 0;
+}
+#header ul li{
+  display:inline;
+  margin-left:10px;
+}
+#header ul li a{
+  text-decoration:none;
+  color:#fff;
+  padding:5px 20px 10px 20px;
+}
+#header ul li a:hover{background:#fff;color:#2c89a0;}
+#header #session_info {
+  position:absolute;
+  right: 40px;
+  top: 1px;
+}
+
+/* Content */
+
+#content{
+  padding:20px;
+}
+#tutorial_wrapper div#tutorial{
+  padding:10px;
+  margin: 10px;
+  width:350px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 1px solid #FFF;
+  float:left;
+}
+#tutorial_wrapper div#tutorial:hover{
+  background: -moz-linear-gradient(top,  #efefef ,#FFFFFF ,#efefef);
+  background: -webkit-linear-gradient(top,  #efefef ,#FFFFFF ,#efefef);
+  border: 1px solid #666;
+  color:#0A8780;
+}
+
+/* Footer */
+#footer {
+  background:#333;
+  padding:10px 20px;
+  color:#fff;
+  text-align:center;
+  background: -moz-linear-gradient(bottom,  #222 50%, #555);
+  background: -webkit-gradient(linear, left bottom, left top, from(#222), to(#555));
+}
+
+/* Notices*/
+
 #flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
+  width:500px;
+  padding: 10px;
+  display:block;
+  margin:auto;
+  margin-top:-20px;
 }
 
 #flash_notice {
   background-color: #CFC;
-  border: solid 1px #6C6;
 }
 
 #flash_error, #flash_alert {
   background-color: #FCC;
-  border: solid 1px #C66;
 }
 
 .fieldWithErrors {

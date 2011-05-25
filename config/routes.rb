@@ -1,9 +1,10 @@
 Nerdgem::Application.routes.draw do
   resources :tutorials
+  resources :welcome
 
   devise_for :users
 
-  root :to => "tutorials#index"
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

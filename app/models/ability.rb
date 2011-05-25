@@ -2,7 +2,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(company)
+  def initialize(user)
     user ||= User.new :role => 'guest'
 
     if user.admin?
@@ -15,8 +15,8 @@ class Ability
       end
       can :read, Tutorial
       can :create, Tutorial
-      can :manage, Tutorial do |j|
-        j.user == user
+      can :manage, Tutorial do |t|
+        t.user == user
       end
     else
       can :read, User
