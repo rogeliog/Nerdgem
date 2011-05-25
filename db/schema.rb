@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522221048) do
+ActiveRecord::Schema.define(:version => 20110525031425) do
+
+  create_table "ruby_gems", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ruby_gems_tutorials", :id => false, :force => true do |t|
+    t.integer "tutorial_id"
+    t.integer "ruby_gem_id"
+  end
+
+  add_index "ruby_gems_tutorials", ["ruby_gem_id", "tutorial_id"], :name => "index_ruby_gems_tutorials_on_ruby_gem_id_and_tutorial_id"
 
   create_table "tutorials", :force => true do |t|
     t.string   "title"

@@ -1,7 +1,9 @@
 class Tutorial < ActiveRecord::Base
   attr_accessible :title, :body, :user_id
-  belongs_to :user
   
+  belongs_to :user
+  has_and_belongs_to_many :ruby_gems
+
   validates :user_id, :presence => true
   validates :title, :presence => true, :uniqueness => true
   validates :body, :presence => true
