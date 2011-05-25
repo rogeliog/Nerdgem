@@ -1,6 +1,7 @@
 Nerdgem::Application.routes.draw do
   resources :tutorials
   resources :welcome
+  resources :ruby_gems
 
   devise_for :users
 

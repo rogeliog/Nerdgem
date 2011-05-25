@@ -3,7 +3,11 @@
   <% @tutorials.each do |tutorial|%>
     <div id="tutorial">
       <h2><%= link_to tutorial.title, tutorial%></h2>
-      <p><%=h RedCloth.new(tutorial.formated_body).to_html %></p>
+      <p>
+        <% tutorial.ruby_gems.each do |ruby_gem|%>
+          <li><%= ruby_gem.name %></li>
+        <% end %>
+      </p>
     </div>
   <% end %>
   <div class="clear"></div>
