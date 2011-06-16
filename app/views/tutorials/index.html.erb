@@ -1,18 +1,20 @@
 <script>$("#navigation li a#tutorials").addClass("current");</script>
-<div  id="tutorial_wrapper">
-  <% @tutorials.each do |tutorial|%>
-    <div id="tutorial">
-      <h2><%= link_to tutorial.title, tutorial%></h2>
-      <p><%= tutorial.body%></p>
-      <p>
-      <ul>
-        <% tutorial.ruby_gems.each do |ruby_gem|%>
-          <li><%= ruby_gem.name %></li>
-        <% end %>
-        </ul>
-      </p>
-    </div>
-  <% end %>
-  <div class="clear"></div>
-</div>
+<div id="left">
+  <div  id="tutorial_wrapper">
 
+    <% @tutorials.each do |tutorial|%>
+      <div id="tutorial">
+        <h2><%= link_to tutorial.title, tutorial%></h2>
+        <p><%= truncate(tutorial.body, :length => 200)%></p>
+        <p>
+        <ul>
+          <% tutorial.ruby_gems.each do |ruby_gem|%>
+            <li><%= ruby_gem.name %></li>
+          <% end %>
+        </ul>
+        </p>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

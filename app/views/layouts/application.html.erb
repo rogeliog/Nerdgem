@@ -2,9 +2,10 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "style", "token-input" %>
+    <%= stylesheet_link_tag "style", "token-input", "coderay" %>
     <%= javascript_include_tag :defaults, "jquery.tokeninput" %>
-
+    <link href='http://fonts.googleapis.com/css?family=Cantarell:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
@@ -45,21 +46,7 @@
           <%= content_tag :h1, yield(:title) if show_title? %>
           <%= yield %>
         </div>
-        <div id="aside">
-          <h3>
-            About
-          </h3>
-          <p>
-          This is an open source project, we are just starting but please fill free to contribute.
-          You can:
-          <ul>
-            <li><%=link_to "http://www.github.com/rogeliog/nerdgem", :target=>:_blank, :alt => "Github" do%>Fork me on <%=image_tag "github.png"%><%end%></li>
-            <li><%=link_to "http://www.github.com/rogeliog/nerdgem", :target=>:_blank, :alt => "Github" do%>Fork me on <%=image_tag "github.png"%><%end%></li>
-            <li><%=link_to "http://www.github.com/rogeliog/nerdgem", :target=>:_blank, :alt => "Github" do%>Fork me on <%=image_tag "github.png"%><%end%></li>
-          </ul>
-          </p>
-        </div>
-        <div id="footer">
+              <div id="footer">
             <p>Nerd Gem</p>
         </div>
       </div>

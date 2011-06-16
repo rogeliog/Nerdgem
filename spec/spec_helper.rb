@@ -8,6 +8,13 @@ require 'rspec/rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  # config.before(:eac) do
+  # include Devise::TestHelpers
+  #   @user = Factory(:user)
+  #   sign_in @user
+  # controller.stubs(:current_user).returns @user
+    
+  # end
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

@@ -6,8 +6,9 @@ gem 'devise'
 gem 'rake', '0.8.7'
 gem 'cancan'
 gem 'RedCloth'
+gem 'coderay'
 gem "jquery-rails"
-
+gem "acts_as_markup"
 
 group :development do
   gem 'nifty-generators'
