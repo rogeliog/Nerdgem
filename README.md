@@ -1,8 +1,10 @@
 #Nerdgem
 
-Nerdgem is an open source project that aim to create a hub where ruby
+Nerdgem is an open source project that aim to create a place where ruby
 developers can post ruby tutorials typically related with one or many
 gem(s)
+
+##Installation
 
 ##Contribute
 

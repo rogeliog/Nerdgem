@@ -2,7 +2,7 @@
 
 
 <div id="left">
-<div class="admin_links">
+<div class="admin_links code">
   <%if can? :manage, @tutorial%>
     <%= link_to "Edit", edit_tutorial_path(@tutorial) %> 
     <%= link_to "Destroy", @tutorial, :confirm => 'Are you sure?', :method => :delete %> 
@@ -10,10 +10,8 @@
   <%= link_to "View All", tutorials_path %>
 </div>
 <h1><%= @tutorial.title %></h1>
-<p>
-<%= textilize(coderay(@tutorial.formated_body)).html_safe %>
+<%= markdown( @tutorial.formated_body ) %>
 </div>
 
 
-</p>
 
