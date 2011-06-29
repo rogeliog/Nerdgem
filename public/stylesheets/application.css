@@ -2,7 +2,6 @@ body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
-  margin:0px;
 }
 
 a img {
@@ -20,85 +19,108 @@ a {
 }
 
 #container {
-  width: 100%;
+  width: 85%;
+  position:relative;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 0px;
+  border: solid 1px black;
   margin-top: 0px;
 }
-
-/* Header */
-#header {
-  width:100%;
-  background:#2c89a0;
-  background: -moz-linear-gradient(top,  #2c89a0 ,#3d9AB1 ,#2c89a0);
-  background: -webkit-linear-gradient(top,  #2c89a0 ,#3d9AB1 ,#2c89a0);
-  height:40px;
-  padding: 1px 0;
+#content {
+  padding: 20px 40px;
 }
-#header ul li{
-  display:inline;
-  margin-left:10px;
-}
-#header ul li a{
-  text-decoration:none;
-  color:#fff;
-  padding:5px 20px 10px 20px;
-}
-#header ul li a:hover{background:#fff;color:#2c89a0;}
-#header #session_info {
-  position:absolute;
-  right: 40px;
-  top: 1px;
-}
-
-/* Content */
-
-#content{
+#header{
   padding:20px;
 }
-#tutorial_wrapper div#tutorial{
+#header .logo{
+  font-size:35px;
+  color:#333;
+  text-decoration:none;
+}
+
+#header h1 { 
+  position:absolute;
+  top:36px;
+  font-size:1.3em;
+  left:300px;
+  font-family:sans-serif;
+  font-weight:normal;
+  color:#999;
+}
+
+#navigation
+{
+	float: right;
+	width: 100%;
+  background:#f60;
+  background: -moz-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
+  background: -webkit-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
+}
+
+#navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#navigation ul#session_links{
+  float:right;
+}
+
+#navigation li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#navigation li a.current, #navigation li a:hover { 
+  background: #333; 
+  background: -moz-linear-gradient(top,#333 50%,#222); 
+  background: -webkit-linear-gradient(top,#333 50%,#222); 
+
+}
+.admin_links{
+  padding-top:20px;
+  float:right;
+}
+.admin_links a:hover{background:#333;color:#fff;}
+.admin_links a{
   padding:10px;
-  margin: 10px;
-  width:350px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border: 1px solid #FFF;
-  float:left;
+  border-radius:5px;
+  text-decoration:none;
+  color:#1F6672;
 }
-#tutorial_wrapper div#tutorial:hover{
-  background: -moz-linear-gradient(top,  #efefef ,#FFFFFF ,#efefef);
-  background: -webkit-linear-gradient(top,  #efefef ,#FFFFFF ,#efefef);
-  border: 1px solid #666;
-  color:#0A8780;
-}
-
-/* Footer */
-#footer {
-  background:#333;
-  padding:10px 20px;
-  color:#fff;
+#footer{
+  background: -moz-linear-gradient(top,#FFF 75%,#DDD); 
+  background: -webkit-linear-gradient(top,#FFF 75%,#DDD); 
+  padding:20px;
   text-align:center;
-  background: -moz-linear-gradient(bottom,  #222 50%, #555);
-  background: -webkit-gradient(linear, left bottom, left top, from(#222), to(#555));
+  font-weight:bold;
 }
-
-/* Notices*/
-
+/* Flash notice*/
 #flash_notice, #flash_error, #flash_alert {
-  width:500px;
-  padding: 10px;
-  display:block;
-  margin:auto;
-  margin-top:-20px;
+  padding: 5px 8px;
+  margin: 10px 0;
 }
 
 #flash_notice {
   background-color: #CFC;
+  border: solid 1px #6C6;
 }
 
 #flash_error, #flash_alert {
   background-color: #FCC;
+  border: solid 1px #C66;
 }
 
 .fieldWithErrors {
