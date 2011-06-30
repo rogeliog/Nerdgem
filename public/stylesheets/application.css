@@ -26,21 +26,19 @@ a {
   border: solid 1px black;
   margin-top: 0px;
 }
-#content {
-  padding: 20px 40px;
-}
 #header{
-  padding:20px;
+  padding: 20px 0;
 }
 #header .logo{
   font-size:35px;
+  padding:20px 0 0 20px;
   color:#333;
   text-decoration:none;
 }
 
 #header h1 { 
   position:absolute;
-  top:36px;
+  top:26px;
   font-size:1.3em;
   left:300px;
   font-family:sans-serif;
@@ -100,12 +98,63 @@ a {
   text-decoration:none;
   color:#1F6672;
 }
+#content {
+  min-height:500px;
+  padding: 20px 40px;
+}
+#tutorial_wrapper{
+  border-top:1px solid #666;
+  border-left:1px solid #666;
+  border-right:1px solid #666;
+}
+#tutorial_wrapper .tutorial{
+  padding:10px;
+  font-weight:bold;
+  height:50px;
+  border-bottom: 1px solid #333;
+}
+#tutorial_wrapper .tutorial:hover{
+  background:#ebf5ff;
+}
+.tutorial.odd{
+  background:#eee;
+}
+.tutorial.even{
+  background:#FFF;
+}
+.gem_tag{
+  background:#f60;
+  background: -moz-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
+  background: -webkit-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
+  border-radius:4px;
+  border:1px solid #c30;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  margin:3px;
+  padding:5px 10px;
+  font-size:12px;
+  color:#fff;
+}
 #footer{
   background: -moz-linear-gradient(top,#FFF 75%,#DDD); 
   background: -webkit-linear-gradient(top,#FFF 75%,#DDD); 
   padding:20px;
   text-align:center;
   font-weight:bold;
+}
+
+.no_decoration{
+  text-decoration:none;
+  color:#333;
+}
+.inline{
+  display:inline;
+}
+.left{
+  float:left;
+}
+.right{
+  float:right;
 }
 /* Flash notice*/
 #flash_notice, #flash_error, #flash_alert {

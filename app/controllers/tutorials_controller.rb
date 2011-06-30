@@ -7,6 +7,10 @@ class TutorialsController < ApplicationController
 
   def show
     @tutorial = Tutorial.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json {render :text => @tutorial.to_json(:methods =>[:ruby_gems, :markdown_body])}
+    end
   end
 
   def new

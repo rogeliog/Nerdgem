@@ -15,40 +15,37 @@
       <div id="header">
         <%=link_to "Nerdgem", root_path, :class=> "logo"%>
         <h1>Social Ruby wisdom and more...</h1>
+        <div id="navigation">
+          <ul>
+            <li><%=link_to "Home", tutorials_path%></li>
+            <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
+            <% if current_user %>
+              <li><%=link_to "Profile",edit_user_registration_path%></li>
+              <li><%=link_to "New tutorial", new_tutorial_path%></li>
+            <%end%>
+          </ul>
+          <ul id="session_links">
+            <% if current_user %>
+              <li><%= link_to "Sign out", destroy_user_session_path%></li>
+            <%else%>
+              <li><%= link_to "Sign in", new_user_session_path%></li>
+              <li><%= link_to "Register", new_user_registration_path%></li>
+            <%end%>
+          </ul>
+        </div>
+
       </div>
 
-      <div id="navigation">
-        <ul>
-          <li><%=link_to "Home", tutorials_path%></li>
-          <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
-          <% if current_user %>
-            <li><%=link_to "Profile",edit_user_registration_path%></li>
-            <li><%=link_to "New tutorial", new_tutorial_path%></li>
-          <%end%>
-        </ul>
-        <ul id="session_links">
-          <% if current_user %>
-            <li><%= link_to "Sign out", destroy_user_session_path%></li>
-          <%else%>
-            <li><%= link_to "Sign in", new_user_session_path%></li>
-            <li><%= link_to "Register", new_user_registration_path%></li>
-          <%end%>
-        </ul>
+      <div id="content">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+
+        <%= content_tag :h1, yield(:title) if show_title? %>
+        <%= yield %>
       </div>
-
-      <div id="content-container">
-
-        <div id="content">
-          <% flash.each do |name, msg| %>
-            <%= content_tag :div, msg, :id => "flash_#{name}" %>
-          <% end %>
-
-          <%= content_tag :h1, yield(:title) if show_title? %>
-          <%= yield %>
-        </div>
-              <div id="footer">
-            <p>Nerd Gem</p>
-        </div>
+      <div id="footer">
+        <p>Nerd Gem</p>
       </div>
     </div>
   </body>

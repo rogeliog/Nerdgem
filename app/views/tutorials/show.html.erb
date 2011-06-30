@@ -1,7 +1,4 @@
-
-
-
-<div id="left">
+<div>
 <div class="admin_links code">
   <%if can? :manage, @tutorial%>
     <%= link_to "Edit", edit_tutorial_path(@tutorial) %> 
@@ -12,6 +9,3 @@
 <h1><%= @tutorial.title %></h1>
 <%= markdown( @tutorial.formated_body ) %>
 </div>
-
-
-
