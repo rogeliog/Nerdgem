@@ -1,19 +1,6 @@
 <script>$("#navigation li a#tutorials").addClass("current");</script>
 <div id="left">
-  <div  id="tutorial_wrapper">
+	  <%= render :partial => 'tutorials', :locals =>{ :tutorials => @tutorials} %>
 
-    <% @tutorials.each do |tutorial|%>
-      <div tutorial_id="<%=tutorial.id%>" class="tutorial <%=cycle('odd', 'even')%>">
-      <%= link_to tutorial.title, tutorial, :class=>"no_decoration"%>
-        <ul class="right">
-          <% tutorial.ruby_gems.each do |ruby_gem|%>
-            <li class="inline gem_tag"><%= ruby_gem.name %></li>
-          <% end %>
-        </ul>
-        <div class="clear"></div>
-      </div>
-    <% end %>
-    <div class="clear"></div>
-  </div>
   <div class = "tutorial_show" ></div>
 </div>

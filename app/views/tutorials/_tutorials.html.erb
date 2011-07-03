@@ -1,0 +1,15 @@
+<div  id="tutorial_wrapper">
+
+	<% tutorials.each do |tutorial|%>
+	<div tutorial_id="<%=tutorial.id%>" class="tutorial <%=cycle('odd', 'even')%>">
+		<%= link_to tutorial.title, tutorial, :class=>"no_decoration"%>
+		<ul class="right">
+			<% tutorial.ruby_gems.each do |ruby_gem|%>
+			<li class = "inline gem_tag"><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></li>
+			<% end %>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<% end %>
+	<div class="clear"></div>
+</div>

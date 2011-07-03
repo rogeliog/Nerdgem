@@ -14,6 +14,7 @@ gem 'linecache19'
 # Rails 3.1 - Asset Pipeline
 gem 'json'
 gem 'sass'
+gem 'coffee-script'
 gem 'uglifier'
 gem 'sprockets', '= 2.0.0.beta.10' 
 
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem "ruby-debug19"
+  gem 'turn', :require => false
   gem "selenium-client"
 end
 

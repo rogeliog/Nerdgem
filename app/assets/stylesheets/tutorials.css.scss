@@ -3,32 +3,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body#tutorials {
-	#tutorial_wrapper{
-		border-top:1px solid #666;
-		border-left:1px solid #666;
-		border-right:1px solid #666;
-		.tutorial{
-			padding:10px;
-			font-weight:bold;
-			height:50px;
-			border-bottom: 1px solid #333;
-			&:hover{
-				background:#ebf5ff;
-			}
-		}
-	}
-	
 
-	.tutorial{
-		.odd{
-			background:#eee;
-		}
-		.tutorial.even{
-			background:#FFF;
+	#tutorial {
+		margin-top:20px;
+		.highlight{
+			overflow:hidden;
 		}
 	}
-	
-	#tutorial .highlight{
-		overflow:auto;
+	#share{
+		float:right;
+		margin: -7px 0 0 0;
+		
 	}
 }

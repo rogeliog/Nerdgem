@@ -4,15 +4,15 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
-  <p>
-    <%= f.label :ruby_gem_tokens, "Gems in this tutorial" %><br />
-    <%= f.text_field :ruby_gem_tokens, "data-pre" => @tutorial.ruby_gems.map(&:attributes).to_json %>
-  </p>
+
   <p>
     <%= f.label :body %><br />
     <%= f.text_area :body, :cols=>80 %>
   </p>
-
+  <p>
+    <%= f.label :ruby_gem_tokens, "Gems in this tutorial" %><br />
+    <%= f.text_field :ruby_gem_tokens, "data-pre" => @tutorial.ruby_gems.map(&:attributes).to_json %>
+  </p>
   
   <p><%= f.submit %></p>
 <% end %>

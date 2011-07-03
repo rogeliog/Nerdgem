@@ -6,4 +6,8 @@ class RubyGemsController < ApplicationController
       format.json { render :json => @ruby_gems.map(&:attributes) }
     end    
   end
+  
+  def show
+    @ruby_gem  = RubyGem.find (params[:id])
+  end
 end
