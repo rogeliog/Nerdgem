@@ -28,57 +28,48 @@ a {
 }
 #header{
   padding: 20px 0;
-}
-#header .logo{
-  font-size:35px;
-  padding:20px 0 0 20px;
-  color:#333;
-  text-decoration:none;
+  .logo{
+    font-size:35px;
+    padding:20px 0 0 20px;
+    color:#333;
+    text-decoration:none;
+  }
+  h1 { 
+    position:absolute;
+    top:26px;
+    font-size:1.3em;
+    left:300px;
+    font-family:sans-serif;
+    font-weight:normal;
+    color:#999;
+  }
 }
 
-#header h1 { 
-  position:absolute;
-  top:26px;
-  font-size:1.3em;
-  left:300px;
-  font-family:sans-serif;
-  font-weight:normal;
-  color:#999;
-}
-
-#navigation
-{
-	float: right;
-	width: 100%;
+#navigation{
+  float: right;
+  width: 100%;
   background:#f60;
   background: -moz-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
   background: -webkit-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
-}
-
-#navigation ul
-{
-	margin: 0;
-	padding: 0;
-}
-
-#navigation ul li
-{
-	list-style-type: none;
-	display: inline;
-}
-
-#navigation ul#session_links{
-  float:right;
-}
-
-#navigation li a
-{
-	display: block;
-	float: left;
-	padding: 5px 10px;
-	color: #fff;
-	text-decoration: none;
-	border-right: 1px solid #fff;
+  ul{
+    margin: 0;
+    padding: 0;
+    li{
+      list-style-type: none;
+      display: inline;
+    }
+  }
+  ul#session_links{
+    float:right;
+  }
+  li a{
+  display: block;
+  float: left;
+  padding: 5px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-right: 1px solid #fff;
+  }
 }
 
 #navigation li a.current, #navigation li a:hover { 
@@ -101,26 +92,6 @@ a {
 #content {
   min-height:500px;
   padding: 20px 40px;
-}
-#tutorial_wrapper{
-  border-top:1px solid #666;
-  border-left:1px solid #666;
-  border-right:1px solid #666;
-}
-#tutorial_wrapper .tutorial{
-  padding:10px;
-  font-weight:bold;
-  height:50px;
-  border-bottom: 1px solid #333;
-}
-#tutorial_wrapper .tutorial:hover{
-  background:#ebf5ff;
-}
-.tutorial.odd{
-  background:#eee;
-}
-.tutorial.even{
-  background:#FFF;
 }
 .gem_tag{
   background:#f60;
