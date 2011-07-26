@@ -15,4 +15,22 @@ body#tutorials {
 		margin: -7px 0 0 0;
 		
 	}
+	
+	.form{
+	 width:405px;
+	 .button{
+	   padding:20px;
+	 }
+	 input[type=text]{
+	   width:390px;
+	   padding-left:10px;
+	   height:25px;
+	   font-size:12px;
+	 } 
+	 textarea{
+	   padding-left:10px;
+	   width:390px;
+	   font-size:12px;
+	 } 
+	}
 }

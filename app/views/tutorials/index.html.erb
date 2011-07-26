@@ -1,6 +1,2 @@
-<script>$("#navigation li a#tutorials").addClass("current");</script>
-<div id="left">
-	  <%= render :partial => 'tutorials', :locals =>{ :tutorials => @tutorials} %>
-
-  <div class = "tutorial_show" ></div>
-</div>
+<%= render :partial => 'tutorials', :locals =>{ :tutorials => @tutorials} %>
+<div class = "tutorial_show" ></div>

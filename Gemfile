@@ -1,10 +1,13 @@
 source 'http://rubygems.org'
+source "http://gems.github.com/"
 
 gem 'rails', '>=3.1.0rc4'
 gem 'sqlite3'
 gem 'devise'
 gem 'rake', '0.9.2'
 gem 'cancan'
+
+#Form formatting and code syntax
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
@@ -22,24 +25,30 @@ gem 'sprockets', '= 2.0.0.beta.10'
 gem 'jquery-rails'
 
 
+
+
+
 group :development do
   gem 'nifty-generators'
 end
 
 gem "mocha", :group => :test
 
+
+
 group :development, :test do 
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber'
-  gem 'rspec-rails', '>=2.6'
-  gem 'rspec-rails-mocha'
-  gem 'spork'
-  gem 'factory_girl_rails'
-  gem 'launchy'
-  gem "ruby-debug19"
-  gem 'turn', :require => false
-  gem "selenium-client"
+    gem 'jquery-rails'
+    gem 'capybara',">= 1.0.0"
+    gem 'database_cleaner'
+    gem 'cucumber-rails', ">= 1.0.0"
+    gem 'cucumber'
+    gem 'rspec-rails'
+    gem 'rspec-rails-mocha'
+    gem 'spork'
+    gem 'factory_girl_rails'
+    gem 'launchy'
+    gem "ruby-debug19"
+    gem 'turn', :require => false
+    gem "selenium-client"
 end
 

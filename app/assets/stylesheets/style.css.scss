@@ -27,7 +27,7 @@ a {
 	margin-top: 0px;
 }
 #header{
-	padding: 20px 0;
+	padding: 40px 0;
 	.logo{
 		font-size:35px;
 		padding:20px 0 0 20px;
@@ -36,9 +36,9 @@ a {
 	}
 	h1 { 
 		position:absolute;
-		top:26px;
+		top:46px;
 		font-size:1.3em;
-		left:300px;
+		right:20px;
 		font-family:sans-serif;
 		font-weight:normal;
 		color:#999;
@@ -46,11 +46,13 @@ a {
 }
 
 #navigation{
+  margin-top:10px;
 	float: right;
 	width: 100%;
 	background:#f60;
-	background: -moz-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
-	background: -webkit-linear-gradient(top, #e50 0%, #f60 20%, #e50 50%);
+	ul#session_links{
+		float:right;
+	}
 	ul{
 		margin: 0;
 		padding: 0;
@@ -59,9 +61,6 @@ a {
 			display: inline;
 		}
 	}
-	ul#session_links{
-		float:right;
-	}
 	li a{
 		display: block;
 		float: left;
@@ -69,15 +68,12 @@ a {
 		color: #fff;
 		text-decoration: none;
 		border-right: 1px solid #fff;
+		&.current, &:hover{
+		  background: #333;
+		}
 	}
 }
 
-#navigation li a.current, #navigation li a:hover { 
-	background: #333; 
-	background: -moz-linear-gradient(top,#333 50%,#222); 
-	background: -webkit-linear-gradient(top,#333 50%,#222); 
-
-}
 .admin_links{
 	padding-top:20px;
 }

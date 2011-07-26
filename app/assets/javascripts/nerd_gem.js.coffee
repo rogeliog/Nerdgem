@@ -22,3 +22,4 @@ $(document).ready ->
 
   tutorial_template = (tutorial) ->
     "<div class='admin_links'><a id='back_to_all' href='#'> View all</a>  </div> <h2>" + tutorial.title + "</h2><div>" + tutorial.markdown_body + "</div>"
+  
