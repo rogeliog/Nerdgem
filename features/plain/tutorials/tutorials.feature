@@ -9,7 +9,3 @@ Feature: Tutorials
 	Scenario: I can see all the tutorials
 	  Given I am on the tutorials page
 	  Then I should see "Ruby tutorial"
-	
-	
-	
-  

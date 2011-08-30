@@ -1,20 +1,17 @@
 
-<div>
+<div id='tutorial'>
 	<h1><%= @tutorial.title %></h1>
 	<% @tutorial.ruby_gems.each do |ruby_gem|%>
 		<li class = "inline gem_tag"><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></li>
 	<%end%>
 	<span>
-		<%if can? :manage, @tutorial%>
 		<%= link_to "Edit", edit_tutorial_path(@tutorial) %> 
-		<%= link_to "Destroy", @tutorial, :confirm => 'Are you sure?', :method => :delete %> 
-		<%end%>
-		<%= link_to "View All", tutorials_path %>
+		<%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete %> 
 	</span>
 
 	
 	<%= render :partial => 'share' %>
 	<div id = "tutorial">
-		<%= markdown( @tutorial.formated_body ) %>
+		<%= markdown( @tutorial.formated_body) %>
 	</div>
 </div>

@@ -1,5 +1,3 @@
-
-
 require 'spec_helper'
 describe Tutorial do
 
@@ -23,10 +21,10 @@ describe Tutorial do
         @tutorial.body = nil
         @tutorial.should_not be_valid
       end
-      it 'Without a user' do
-        @tutorial.user_id = nil
-        @tutorial.should_not be_valid
-      end
+      # it 'Without a user' do
+      #   @tutorial.user_id = nil
+      #   @tutorial.should_not be_valid
+      # end
 
     end
 
@@ -43,7 +41,7 @@ describe Tutorial do
         end
         it 'Returns a CSV string' do
           @tutorial.ruby_gem_tokens=@ids.join(',')
-          @tutorial.ruby_gem_ids.should eql([1,2,3,4,5])
+          @tutorial.ruby_gem_ids.should eql(@ids)
         end
       end
 
