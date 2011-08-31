@@ -18,6 +18,7 @@ class Tutorial < ActiveRecord::Base
   def formated_body
     self.body.gsub(/^h2\./,'h3.').gsub(/^h1\./,'h2.')
   end
+
   def markdown_body
     markdown self.formated_body
   end

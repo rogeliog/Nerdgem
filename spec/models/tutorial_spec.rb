@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe Tutorial do
 
   before do
@@ -30,6 +31,7 @@ describe Tutorial do
 
   end
   context 'Instance Methods' do
+
     describe '.ruby_gem_tokens' do
       before do
         5.times{ |n|Factory(:ruby_gem) }
@@ -53,6 +55,7 @@ describe Tutorial do
       end
 
     end
+
     describe '.formated_body' do
       before do
         @tutorial.update_attributes(:body => "h1. Title \n body \n\nh2. Sub Title Even more body")
