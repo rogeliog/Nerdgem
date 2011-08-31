@@ -7,6 +7,15 @@
 });
 `
 $(document).ready ->
+
+
+  # setInterval ->
+    body = $('#tutorial_body').val()
+    `$.getJSON("/preview.json", { body: ""+body+""},
+        function(data) {
+          alert("Data Loaded: " + data);
+      });`
+  # ,5000
   # $(".admin_links").live  "click",->
   #   $("#content .tutorial_show").fadeOut()
   #   setTimeout -> $("#tutorial_wrapper").fadeIn(),
@@ -14,7 +23,7 @@ $(document).ready ->
     
   # $(".tutorial").click ->
   #   id = $(@).attr 'tutorial_id'
-  #   $.getJSON "/tutorials/" + id, (data)->
+  #   $.getjson "/tutorials/" + id, (data)->
   #     $.each data, ->
   #       $("#content .tutorial_show").html(tutorial_template @).hide
   #     $("#tutorial_wrapper").fadeOut 500
