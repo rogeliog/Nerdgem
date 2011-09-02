@@ -1,6 +1,6 @@
 class PreviewsController < ApplicationController
   def preview
-    debugger
-    true
+    @body = params[:body]
+    respond_to {|format| format.js }
   end
 end

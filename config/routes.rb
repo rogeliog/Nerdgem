@@ -4,6 +4,6 @@ Nerdgem::Application.routes.draw do
   resources :ruby_gems
   devise_for :users
 
-  match 'preview' => 'previews#preview', :as => :preview, :via => :get
+  match 'preview' => 'previews#preview', :as => :preview, :via => :post
   root :to => "tutorials#index"
 end

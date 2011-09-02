@@ -1,4 +1,8 @@
-  <div class='right'> <%= render 'markdown'%> </div>
+<% javascript 'preview' %>
+<div id='preview'>
+  <h2 class='pretty'>Live preview</h2>
+  <div class='preview' id='tutorial_preview'></div>
+</div>
 <%= form_for @tutorial, :html => {:class=> "form"} do |f| %>
   <%= f.error_messages %>
   <p>
@@ -16,4 +20,5 @@
   </p>
   <p><%= f.submit :class => "button right" %></p>
 <% end %>
-  <div class='clear'></div>
+<div class='clear'></div>
+

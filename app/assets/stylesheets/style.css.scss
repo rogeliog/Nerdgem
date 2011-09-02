@@ -29,7 +29,7 @@ a {
 }
 
 #container {
-  width: 85%;
+  width:1000px;
   position:relative;
   margin: 0 auto;
   background-color: #FFF;
@@ -114,7 +114,15 @@ a {
     }
   }
 }
-
+#pretty{
+  color:#2c89a0;
+}
+#preview{
+  width:500px;
+  float:right;
+  #tutorial_preview{overflow-x:auto;overflow-y:scroll; max-height:400px;}
+  .highlight{ overflow:auto; }
+}
 
 .tutorial{
   .odd{
