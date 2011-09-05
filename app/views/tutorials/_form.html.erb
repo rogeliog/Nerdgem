@@ -1,7 +1,7 @@
 <% javascript 'preview' %>
 <div id='preview'>
-  <h2 class='pretty'>Live preview</h2>
-  <div class='preview' id='tutorial_preview'></div>
+  <h2 class='live'>Live preview</h2>
+  <div class='preview' id='tutorial_preview'><%= markdown (@tutorial.body.to_s) %></div>
 </div>
 <%= form_for @tutorial, :html => {:class=> "form"} do |f| %>
   <%= f.error_messages %>
@@ -15,6 +15,7 @@
   <%= f.text_field :ruby_gem_tokens, "data-pre" => @tutorial.ruby_gems.map(&:attributes).to_json %>
   </p>
   <p>
+  <%= render 'markdown'%>
   <%= f.label :body %>
   <%= f.text_area :body%>
   </p>

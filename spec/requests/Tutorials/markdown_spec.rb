@@ -25,16 +25,29 @@ describe 'Markdown syntax for tutorial' do
 
   it 'should see a simple markdown syntax tutorial on the tutorial form' do
     visit new_tutorial_path
-    within("#markdown_tutorial") do
-      page.should have_content("h1")
-      page.should have_content("h2")
-      page.should have_content("h3")
-      page.should have_content("bullets")
-      page.should have_content("lists")
-      page.should have_content("links")
-      page.should have_content("code")
-      page.should have_content("Full Markdown documentation")
+    click_link "markdown syntax"
+    within("#formatting_guide") do
+      page.should have_content("#")
+      page.should have_content("##")
+      page.should have_content("Bullet")
+      page.should have_content("First element")
+      page.should have_content("For an advanced guide Click here")
     end
   end
 
+  describe 'Preview' do
+    it 'can add HTML tags to the tutorial and preview it with markdown syntax', :js => true do
+      visit new_tutorial_path
+      fill_in "tutorial_body", :with => @html_body
+      within('#tutorial_preview h2'){ page.should have_content("And this will become an h2")}
+      within('#tutorial_preview li'){ page.should have_content("But this is a list item")}
+    end
+
+    it 'can add code blocks to the tutorial and preview it with markdown syntax', :js => true do
+      visit new_tutorial_path
+      fill_in "tutorial_body", :with => @code_body
+      within('#tutorial_preview .highlight'){ page.should have_content("puts 'chino'") }
+    end
+
+  end
 end

@@ -1,7 +1,6 @@
 $(document).ready ->
   prev_body=""
-  body = $('#tutorial_body').val()
-  $.post('/preview', {body: body})
+  body = ""
 
   setInterval ->
     body = $('#tutorial_body').val()

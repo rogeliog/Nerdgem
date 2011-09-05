@@ -25,6 +25,14 @@ describe 'Tutorial edit and creation' do
       click_on "Create Tutorial"
       page.should have_content "Body can't be blank"
     end
+
+    it 'Can see the markdown syntax guide within a lightbox', :js => true do
+      visit new_tutorial_path
+      click_link "markdown syntax"
+      within("#fancybox-content #formatting_guide"){
+        page.should have_content("Markdown styling guide");
+      }
+    end
   end
 
   describe 'Tutorial edition' do

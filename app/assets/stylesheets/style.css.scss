@@ -114,9 +114,7 @@ a {
     }
   }
 }
-#pretty{
-  color:#2c89a0;
-}
+.live{ color:darken(#f60, 10%); }
 #preview{
   width:500px;
   float:right;
@@ -221,6 +219,9 @@ a {
   margin: 0;
 }
 
+#formatting_guide{
+  margin:5px 10px;
+}
 #formatting_guide table {
   border-spacing: 0px;
   background: #fff;
