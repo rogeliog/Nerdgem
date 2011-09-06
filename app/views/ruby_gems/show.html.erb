@@ -1,7 +1,14 @@
 <%= javascript 'ruby_gems' %>
-<div>
+<div id='gem'>
 	<h1><%= @ruby_gem.name.capitalize %></h1>
-  Authors: <%= @info['authors']%><br />
-  Info: <%= @info['info']%>
-	<%= render :partial => "tutorials/tutorials", :locals => {:tutorials => @ruby_gem.tutorials}%>
+  <p id='authors'><%= @info['authors']%></p>
+  <%= @info['info']%><br />
+  <ul>
+    <li><%= link_to "Homepage", @info['homepage_uri']%></li>
+    <li><%= link_to "Source code", @info['source_code_uri']%></li>
+    <li><%= link_to "Official gem url", @info['gem_uri']%></li>
+  </ul>
+  <div class='clear'></div>
 </div>
+	<h2>Tutorials</h2>
+	<%= render :partial => "tutorials/tutorials", :locals => {:tutorials => @ruby_gem.tutorials}%>
