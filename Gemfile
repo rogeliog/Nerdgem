@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 source "http://gems.github.com/"
 
 gem 'rails', '>=3.1.0rc6'
-gem 'sqlite3', '>=1.3.4'
 gem 'devise'
 gem 'rake', '0.9.2'
 gem 'cancan'
@@ -13,13 +12,13 @@ gem 'albino'
 gem 'nokogiri'
 gem "acts_as_markup"
 
-gem 'linecache19'
 # Rails 3.1 - Asset Pipeline
 gem 'json'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'sprockets'
+gem 'pygmentize'
 
 # Rails 3.1 - JavaScript
 gem 'jquery-rails'
@@ -32,6 +31,8 @@ group :production do
 end
 
 group :development, :test do 
+  gem 'sqlite3', '>=1.3.4'
+  gem 'linecache19'
   gem 'nifty-generators'
   gem 'jquery-rails'
   gem 'capybara',">= 1.0.0"
