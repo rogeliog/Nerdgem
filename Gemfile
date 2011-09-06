@@ -26,6 +26,11 @@ gem 'jquery-rails'
 
 gem 'rest-client'
 
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+
 group :development, :test do 
   gem 'nifty-generators'
   gem 'jquery-rails'
