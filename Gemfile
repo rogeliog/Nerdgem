@@ -24,6 +24,8 @@ gem 'sprockets'
 # Rails 3.1 - JavaScript
 gem 'jquery-rails'
 
+gem 'rest-client'
+
 group :development, :test do 
   gem 'nifty-generators'
   gem 'jquery-rails'

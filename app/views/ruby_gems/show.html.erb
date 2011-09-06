@@ -1,5 +1,7 @@
 <%= javascript 'ruby_gems' %>
 <div>
 	<h1><%= @ruby_gem.name.capitalize %></h1>
+  Authors: <%= @info['authors']%><br />
+  Info: <%= @info['info']%>
 	<%= render :partial => "tutorials/tutorials", :locals => {:tutorials => @ruby_gem.tutorials}%>
 </div>

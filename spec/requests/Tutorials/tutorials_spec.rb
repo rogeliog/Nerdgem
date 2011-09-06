@@ -9,7 +9,7 @@ describe "Tutorials" do
   end
   let(:user){@user}
 
-  describe 'GET /tutorials' do
+  describe 'tutorials index recent list' do
     before do
     end
 
@@ -32,21 +32,5 @@ describe "Tutorials" do
       page.should have_content(@tutorial_2.ruby_gems.first.name)
     end
 
-  end
-
-  describe 'GET /tutorials/:id' do
-    it 'I can see the tutorial information' do
-      visit tutorials_path
-      click_link @tutorial_1.title
-      current_path.should eq(tutorial_path(@tutorial_1))
-      page.should have_content @tutorial_1.title
-      page.should have_content @tutorial_1.body
-    end
-
-    it 'I should see the admin links' do
-      visit tutorial_path(@tutorial_1)
-      page.should have_content "Edit"
-      page.should have_content "Delete"
-    end
   end
 end
