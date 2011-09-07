@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525031425) do
+ActiveRecord::Schema.define(:version => 20110906124908) do
 
   create_table "ruby_gems", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "info"
   end
 
   create_table "ruby_gems_tutorials", :id => false, :force => true do |t|

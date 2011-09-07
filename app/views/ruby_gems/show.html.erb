@@ -1,12 +1,16 @@
 <%= javascript 'ruby_gems' %>
 <div id='gem'>
 	<h1><%= @ruby_gem.name.capitalize %></h1>
-  <p id='authors'><%= @info['authors']%></p>
-  <%= @info['info']%><br />
+  <p id='authors'><%= @ruby_gem.info['authors']%></p>
+  <%= @ruby_gem.info['info']%><br />
   <ul>
-    <li><%= link_to "Homepage", @info['homepage_uri']%></li>
-    <li><%= link_to "Source code", @info['source_code_uri']%></li>
-    <li><%= link_to "Official gem url", @info['gem_uri']%></li>
+    <% if @ruby_gem.info['homepage_uri'].present?%>
+      <li><%= link_to "Homepage", @ruby_gem.info['homepage_uri']%></li>
+    <%end%>
+
+    <% if @ruby_gem.info['source_code_uri'].present?%>
+      <li><%= link_to "Source code", @ruby_gem.info['source_code_uri']%></li>
+    <%end%>
   </ul>
   <div class='clear'></div>
 </div>

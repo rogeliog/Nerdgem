@@ -31,6 +31,7 @@ group :production do
 end
 
 group :development, :test do 
+  gem 'timecop'
   gem 'sqlite3', '>=1.3.4'
   gem 'linecache19'
   gem 'nifty-generators'

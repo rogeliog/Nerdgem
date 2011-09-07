@@ -9,6 +9,6 @@ class RubyGemsController < ApplicationController
   
   def show
     @ruby_gem  = RubyGem.find (params[:id])
-    @info = JSON.load(RestClient.get "https://rubygems.org/api/v1/gems/#{@ruby_gem.name}.json") rescue ""
+    @ruby_gem.get_info
   end
 end
