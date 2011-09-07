@@ -5,11 +5,11 @@
   <%= @ruby_gem.info['info']%><br />
   <ul>
     <% if @ruby_gem.info['homepage_uri'].present?%>
-      <li><%= link_to "Homepage", @ruby_gem.info['homepage_uri']%></li>
+      <li><%= link_to "Homepage", @ruby_gem.info['homepage_uri'], :target => :blank%></li>
     <%end%>
 
     <% if @ruby_gem.info['source_code_uri'].present?%>
-      <li><%= link_to "Source code", @ruby_gem.info['source_code_uri']%></li>
+      <li><%= link_to "Source code", @ruby_gem.info['source_code_uri'], :target => :blank%></li>
     <%end%>
   </ul>
   <div class='clear'></div>

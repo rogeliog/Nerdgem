@@ -10,7 +10,7 @@ class RubyGem < ActiveRecord::Base
 
   def get_info
     if self.info.blank? or self.expired_info?
-      self.info = JSON.load(RestClient.get "https://rubygems.org/api/v1/gems/#{self.name}.json") rescue ""
+      self.info = JSON.load(RestClient.get "https://rubygems.org/api/v1/gems/#{self.name}.json") rescue {}
       self.save
     end
     self.info

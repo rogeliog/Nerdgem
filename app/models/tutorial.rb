@@ -10,6 +10,7 @@ class Tutorial < ActiveRecord::Base
   # validates :user_id, :presence => true
   validates :title, :presence => true
   validates :body, :presence => true
+  scope :ordered, order('ID DESC')
 
   def ruby_gem_tokens=(ids)
     self.ruby_gem_ids = ids.split(",")
