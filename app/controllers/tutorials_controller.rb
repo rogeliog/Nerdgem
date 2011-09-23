@@ -1,7 +1,7 @@
 class TutorialsController < ApplicationController
 
   def index
-    @tutorials = Tutorial.ordered
+    @tutorials = Tutorial.search(params[:search])
   end
 
   def show

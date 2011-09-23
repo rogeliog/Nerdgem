@@ -24,6 +24,19 @@ class Tutorial < ActiveRecord::Base
     markdown self.formated_body
   end
 
+  def self.search(params="")
+    if params.present?
+      joins(:ruby_gems).where("title LIKE ? OR ruby_gems.id IN (#{search_ruby_gems(params)})", "%#{params}%")
+    else
+      return ordered
+    end
+  end
+
+  private
+
+  def self.search_ruby_gems(ruby_gems)
+    ruby_gems.split(" ").map{ |rg| RubyGem.find_by_name(rg).id rescue nil }.uniq.compact.join(',')
+  end
 end
 
 
