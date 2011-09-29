@@ -4,7 +4,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body#tutorials {
 
+  #side{
+    margin-top:20px;
+    width:250px;
+  }
 	#tutorial {
+    float:left;
+    width:600px;
 		margin-top:20px;
 		.highlight{
 			overflow:hidden;

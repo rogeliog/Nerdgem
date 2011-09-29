@@ -13,3 +13,15 @@
 	<%= render :partial => 'share' %>
 		<%= markdown( @tutorial.formated_body) %>
 </div>
+<div id= 'side' class='right'>
+  <h2>Related Tutorials</h2>
+  <ul>
+    <% @tutorial.related_tutorials.uniq.each do |tutorial|%>
+      <li>
+      <%= link_to tutorial.title, tutorial%><br />
+      <p><%= tutorial.ruby_gems_names.join(", ")%></p>
+      </li>
+    <%end%>
+  </ul>
+</div>
+<div class='clear'></div>

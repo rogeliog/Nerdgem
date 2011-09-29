@@ -26,23 +26,37 @@ class Tutorial < ActiveRecord::Base
 
   def self.search(params="")
     if params.present?
-      joins(:ruby_gems).where("title LIKE ? OR ruby_gems.id IN (#{search_ruby_gems(params)})", "%#{params}%")
+      list = search_ruby_gems(params)
+      where_clause = %{
+      tutorials.id IN
+      (SELECT v.tutorial_id FROM 
+      (SELECT tutorial_id, count(*) as cnt FROM ruby_gems_tutorials WHERE ruby_gem_id in (#{list}) GROUP BY tutorial_id) v 
+      WHERE v.cnt = #{list.split(",").size})
+      } 
+      # results = params.split(" ").map{ |str| "title LIKE '%#{str}%'"}.compact.join(" OR ")
+      # joins(:ruby_gems).where("title LIKE ? OR #{where_clause} OR #{results} ","%#{params}%")
+
+      joins(:ruby_gems).where("title LIKE ? OR #{where_clause}","%#{params}%").uniq
     else
       return ordered
     end
   end
 
+  def related_tutorials
+    if self.ruby_gems.blank?
+    Tutorial.search(self.title).uniq
+    else
+    Tutorial.search(self.title) + Tutorial.search(self.ruby_gems_names.join(' ')).uniq
+    end
+  end
+
+  def ruby_gems_names
+    self.ruby_gems.map(&:name)
+  end
+
   private
 
   def self.search_ruby_gems(ruby_gems)
-    ruby_gems.split(" ").map{ |rg| RubyGem.find_by_name(rg).id rescue nil }.uniq.compact.join(',')
+    ruby_gems.split(" ").map{ |rg| RubyGem.where("name LIKE ?", "#{rg}").first.id rescue nil}.uniq.compact.join(',')
   end
 end
-
-
-
-
-
-
-
-

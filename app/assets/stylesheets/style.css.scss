@@ -9,7 +9,6 @@
   -moz-box-shadow: $x $y $s $color;
 } 
 body {
-  background-color: #aaa;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -38,18 +37,18 @@ a {
 }
 
 #header{
-  padding: 40px 0;
   .logo{
     font-size:35px;
-    padding:20px 0 0 20px;
     color:#333;
     text-decoration:none;
   }
+
+  margin-bottom:20px;
   h1 { 
     position:absolute;
-    top:46px;
+    top:6px;
     font-size:1.3em;
-    right:20px;
+    left:170px;
     font-family:sans-serif;
     font-weight:normal;
     color:#999;
@@ -57,11 +56,16 @@ a {
 }
 
 #navigation{
-  margin-top:10px;
+  margin-top:5px;
   float: right;
   width: 100%;
-  background:#f60;
-  ul#session_links{
+  background:#444;
+  #search{
+    input{
+      width:200px;
+      margin: 4px 6px 0 0;
+    }
+    color:#fff;
     float:right;
   }
   ul{
@@ -80,21 +84,11 @@ a {
     text-decoration: none;
     border-right: 1px solid #fff;
     &.current, &:hover{
-      background: #aaa;
+      background: #f60;
     }
   }
 }
 
-.admin_links{
-  padding-top:20px;
-}
-.admin_links a:hover{background:#333;color:#fff;}
-.admin_links a{
-  padding:10px;
-  border-radius:5px;
-  text-decoration:none;
-  color:#1F6672;
-}
 #content {
   min-height:500px;
   padding: 20px 40px;
@@ -131,6 +125,35 @@ a {
   }
 }
 
+#side{
+  @include shadow(0px, 4px, 5px, #999);
+  h2{padding:3px 10px;}
+  ul{
+    list-style:none;
+    padding:0;
+  }
+  p{
+    font-size:10px;
+    color:#333;
+    @include rounded(5px);
+    margin: 2px 0 2px 0;
+    padding:4px;
+  }
+  li{
+    border-top:1px solid #fff;
+    border-bottom:1px solid #fff;
+    a{text-decoration:none}
+    &:hover{
+      border-top:1px solid #f60;
+      border-bottom:1px solid #f60;
+      background:#ccc;
+    }
+    padding:10px;
+  }
+  min-height:400px;
+  margin-top:20px;
+  width:250px;
+}
 #gem{
   position:relative;
   h1{

@@ -20,8 +20,14 @@
             <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
             <li><%=link_to "New tutorial", new_tutorial_path%></li>
           </ul>
+          <div id='search'>
+            <%= form_tag tutorials_path, :method => 'get' do %>
+              <%= label_tag "Find a tutorial"%>
+              <%= text_field_tag :search, params[:search], :id => "search_field" %> 
+            <% end %>
+          </div>
+          <div class='clear'></div>
         </div>
-
       </div>
 
       <div id="content">

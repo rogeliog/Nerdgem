@@ -71,5 +71,28 @@ describe Tutorial do
         @tutorial.formated_body.should_not include("h2. Sub Title")
       end
     end
+
+    describe '.search' do
+      context 'With a search param' do
+        before do
+          @tutorial_t = Factory(:tutorial, :title =>"Random title")
+          @tutorial_g1 = Factory(:tutorial, :ruby_gems => [Factory(:ruby_gem, :name => "Cancan")])
+          @tutorial_g2 = Factory(:tutorial, :ruby_gems => [RubyGem.find_by_name("Cancan"),Factory(:ruby_gem, :name => "Devise")])
+
+        end
+        it 'Returns the tutorials name like params' do
+          Tutorial.search("Random title").should == ([@tutorial_t])
+        end
+        it 'Returns the tutorials that contain the params gems' do
+          Tutorial.search("Cancan or other gem").should == ([@tutorial_g1, @tutorial_g2])
+        end
+
+      end
+      context 'Without a search param' do
+        it 'Returns all the tutorials' do
+          Tutorial.search.should == (Tutorial.all)
+        end
+      end
+    end
   end
 end
