@@ -3,8 +3,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new :role => 'guest'
-
+    user ||= Factory.build(:user, :role => 'guest')
     if user.admin?
       can :manage, User
       can :manage, Tutorial

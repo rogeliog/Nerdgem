@@ -3,6 +3,7 @@ source "http://gems.github.com/"
 
 gem 'rails', '>=3.1.0rc6'
 gem 'devise'
+gem 'omniauth'
 gem 'rake', '0.9.2'
 gem 'cancan'
 
@@ -48,3 +49,4 @@ group :development, :test do
   gem "selenium-client"
 end
 
+gem "mocha", :group => :test

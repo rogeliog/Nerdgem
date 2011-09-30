@@ -1,17 +1,20 @@
 
 <div id='tutorial'>
-	<h1><%= @tutorial.title %></h1>
-	<% @tutorial.ruby_gems.each do |ruby_gem|%>
-		<li class = "inline gem_tag"><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></li>
-	<%end%>
-	<span>
-		<%= link_to "Edit", edit_tutorial_path(@tutorial) %> 
-		<%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete %> 
-	</span>
+    <div class='small user_link'><%= link_to @tutorial.user.name, @tutorial.user%></div>
+  <h1><%= @tutorial.title %></h1>
+  <% @tutorial.ruby_gems.each do |ruby_gem|%>
+    <li class = "inline gem_tag"><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></li>
+  <%end%>
+  <span>
+    <% if can? :manage, @tutorial%>
+      <%= link_to "Edit", edit_tutorial_path(@tutorial) %> 
+      <%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete %> 
+    <% end %>
+  </span>
 
-	
-	<%= render :partial => 'share' %>
-		<%= markdown( @tutorial.formated_body) %>
+
+  <%= render :partial => 'share' %>
+  <%= markdown( @tutorial.formated_body) %>
 </div>
 <div id= 'side' class='right'>
   <h2>Related Tutorials</h2>

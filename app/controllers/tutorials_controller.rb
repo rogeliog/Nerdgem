@@ -1,5 +1,6 @@
 class TutorialsController < ApplicationController
 
+  load_and_authorize_resource
   def index
     @tutorials = Tutorial.search(params[:search])
   end

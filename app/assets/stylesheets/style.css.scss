@@ -12,6 +12,12 @@ body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
+#fork{
+  position:fixed;
+  z-index:5;
+  top:0;
+  right:0;
+}
 
 a img {
   border: none;
@@ -55,6 +61,18 @@ a {
   }
 }
 
+#session_links{
+  margin-top:22px;
+  a{
+    color:#666;
+    margin-left:25px;
+    text-transform: uppercase; 
+    text-decoration:none;
+    &:hover{text-decoration:underline;}
+    
+  }
+
+}
 #navigation{
   margin-top:5px;
   float: right;
@@ -88,7 +106,10 @@ a {
     }
   }
 }
+.user_link a{
+  color:#666;
 
+}
 #content {
   min-height:500px;
   padding: 20px 40px;
@@ -215,6 +236,33 @@ a {
 .small{
   font-size:10px;
 }
+/* Github sign in*/
+.sign_in_with_github{
+  position:relative;
+  margin-top:10px;
+}
+.sign_in_with_github a {
+  display:block;
+  text-decoration:none;
+  height: 23px;
+  width: 175px;
+  text-align: right;
+  padding-right: 23px;
+  padding-top:3px;
+  color: #293f46;
+  text-shadow: #fff 1px 1px 2px;
+  border: 2px solid #aaa;
+  background: #aaa -webkit-gradient(linear, left bottom, left top, color-stop(0,  #aaa), color-stop(0.9, #ddd));
+  background: #c1e6ea -moz-linear-gradient( center bottom, rgb(161,200,209) 0%, rgb(211,245,246) 81%);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  font: bold 15px "Lucida Grande";
+  &:hover{
+    background: #aaa -webkit-gradient(linear, left bottom, left top, color-stop(0,  #bbb), color-stop(0.9, #fefefe));
+    background: #c1e6ea -moz-linear-gradient( center bottom, rgb(161,200,209) 0%, rgb(211,245,246) 81%);
+  }
+}
+
 /* Flash notice*/
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;

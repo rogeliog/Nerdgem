@@ -9,11 +9,26 @@
   </head>
 
   <body id="<%= params[:controller].parameterize %>">  
+    <%= link_to (image_tag 'fork.png', :id => 'fork'), "http://github.com/rogeliog/nerdgem", :target => "_blank"%>
     <div id="container">
 
       <div id="header">
         <%=link_to "Nerdgem", root_path, :class=> "logo"%>
         <h1>Social Ruby wisdom and more...</h1>
+
+        <div class='right'>
+          <% if current_user%>
+            <div id='session_links'>
+            <%= link_to "Profile", edit_user_path(current_user)%>
+            <%= link_to "Sign out", destroy_user_session_path%>
+            </div>
+          <%else%>
+            <div class="sign_in_with_github lighter">
+              <%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %>
+            </div>
+          <%end%>
+        </div>
+
         <div id="navigation">
           <ul>
             <li><%=link_to "Home", tutorials_path%></li>
