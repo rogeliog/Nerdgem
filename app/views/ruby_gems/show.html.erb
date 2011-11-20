@@ -1,7 +1,9 @@
 <%= javascript 'ruby_gems' %>
-<div id='gem'>
+<div id='gem' >
+  <div class='general_info_alt'>
 	<h1><%= @ruby_gem.name.capitalize %></h1>
-  <p id='authors'><%= @ruby_gem.info['authors']%></p>
+  <p id='authors', class='pull-right'><%= @ruby_gem.info['authors']%></p>
+  <div class='clear'></div>
   <%= @ruby_gem.info['info']%><br />
   <ul>
     <% if @ruby_gem.info['homepage_uri'].present?%>
@@ -13,6 +15,7 @@
     <%end%>
   </ul>
   <div class='clear'></div>
+    </div>
 </div>
 	<h2>Tutorials</h2>
 	<%= render :partial => "tutorials/tutorials", :locals => {:tutorials => @ruby_gem.tutorials}%>

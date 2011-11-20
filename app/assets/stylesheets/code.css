@@ -1,18 +1,18 @@
 .hll { background-color: #ffffcc }
 
-.highlight { 
-  background-color: #ffffdd;
-  border: 2px solid #ddddaa;
-  padding:7px;
-  font-size:13px;
-  -webkit-border-radius:7px;
-  -moz-border-radius:7px;
-  border-radius:7px;
-}
-.highlight pre {
-  margin: 0px;
- 	padding: 0px;
-}
+/* .highlight { */
+/*   background-color: #ffffdd;*/
+/*   border: 2px solid #ddddaa;*/
+/*   padding:7px;*/
+/*   font-size:13px;*/
+/*   -webkit-border-radius:7px;*/
+/*   -moz-border-radius:7px;*/
+/*   border-radius:7px;*/
+/* }*/
+/* .highlight pre {*/
+/*   margin: 0px;*/
+/*    padding: 0px;*/
+/* }*/
 .c { color: #408080; font-style: italic } /* Comment */
 .err { border: 1px solid #FF0000 } /* Error */
 .k { color: #008000; font-weight: bold } /* Keyword */

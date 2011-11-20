@@ -9,18 +9,42 @@
   </head>
 
   <body id="<%= params[:controller].parameterize %>">  
-    <%= link_to (image_tag 'fork.png', :id => 'fork'), "http://github.com/rogeliog/nerdgem", :target => "_blank"%>
-    <div id="container">
+    <div class="container">
+      <%# <%= link_to (image_tag 'fork.png', :id => 'fork'), "http://github.com/rogeliog/nerdgem", :target => "_blank", %>%>
 
-      <div id="header">
-        <%=link_to "Nerdgem", root_path, :class=> "logo"%>
-        <h1>Social Ruby wisdom and more...</h1>
+      <div id="header" class='row show-grid'>
 
-        <div class='right'>
+        <div class="topbar">
+          <div class="fill">
+            <div class="container">
+              <%= link_to 'Nerdgem', root_path, :class => 'brand' %>
+              <ul class="nav">
+                <li><%=link_to "Home", tutorials_path%></li>
+                <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
+                <li><%=link_to "New tutorial", new_tutorial_path%></li>
+              </ul>
+              <div class='pull-right'>
+                <%= form_tag tutorials_path %>
+                <%= text_field_tag :repo, "", :placeholder=>"Find a tutorial" %>
+              </form>
+              <ul>
+                <% if current_user%>
+                  <li><%= link_to "Profile", edit_user_path(current_user)%></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path%></li>
+                <%else%>
+                  <li><%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %></li>
+                <%end%>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='span4 offset4'>
           <% if current_user%>
             <div id='session_links'>
-            <%= link_to "Profile", edit_user_path(current_user)%>
-            <%= link_to "Sign out", destroy_user_session_path%>
+              <%= link_to "Profile", edit_user_path(current_user)%>
+              <%= link_to "Sign out", destroy_user_session_path%>
             </div>
           <%else%>
             <div class="sign_in_with_github lighter">
@@ -28,33 +52,17 @@
             </div>
           <%end%>
         </div>
-
-        <div id="navigation">
-          <ul>
-            <li><%=link_to "Home", tutorials_path%></li>
-            <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
-            <li><%=link_to "New tutorial", new_tutorial_path%></li>
-          </ul>
-          <div id='search'>
-            <%= form_tag tutorials_path, :method => 'get' do %>
-              <%= label_tag "Find a tutorial"%>
-              <%= text_field_tag :search, params[:search], :id => "search_field" %> 
-            <% end %>
-          </div>
-          <div class='clear'></div>
-        </div>
       </div>
 
-      <div id="content">
+      <div id="content" class="span16">
         <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <%= content_tag :div, msg, :class => notice_trans(name) %>
         <% end %>
 
-        <%= content_tag :h1, yield(:title) if show_title? %>
+        <div id='title'>
+          <%= content_tag :h1, yield(:title) if show_title? %>
+        </div>
         <%= yield %>
-      </div>
-      <div id="footer">
-        <p>Nerd Gem</p>
       </div>
     </div>
   </body>

@@ -1,23 +1,6 @@
 
-<div id='tutorial'>
-    <div class='small user_link'><%= link_to @tutorial.user.name, @tutorial.user%></div>
-  <h1><%= @tutorial.title %></h1>
-  <% @tutorial.ruby_gems.each do |ruby_gem|%>
-    <li class = "inline gem_tag"><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></li>
-  <%end%>
-  <span>
-    <% if can? :manage, @tutorial%>
-      <%= link_to "Edit", edit_tutorial_path(@tutorial) %> 
-      <%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete %> 
-    <% end %>
-  </span>
-
-
-  <%= render :partial => 'share' %>
-  <%= markdown( @tutorial.formated_body) %>
-</div>
-<div id= 'side' class='right'>
-  <h2>Related Tutorials</h2>
+<div id= 'side' class='span4 pull-right'>
+  <h3>Related Tutorials</h3>
   <ul>
     <% @tutorial.related_tutorials.uniq.each do |tutorial|%>
       <li>
@@ -27,4 +10,17 @@
     <%end%>
   </ul>
 </div>
-<div class='clear'></div>
+
+<div class='span12'>
+  <%= render :partial => 'tutorials', :locals=>{:tutorials => [@tutorial]}%>
+  <div id='tutorial'>
+    <div class='pull-right'>
+      <% if can? :manage, @tutorial%>
+        <%= link_to "Edit", edit_tutorial_path(@tutorial), :class=> 'btn info' %> 
+        <%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete, :class=> 'btn danger' %> 
+      <% end %>
+    </div>
+    <%= markdown( @tutorial.formated_body) %>
+  </div>
+</div>
+<div class='clearfix'></div>

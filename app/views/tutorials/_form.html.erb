@@ -1,28 +1,41 @@
 <% javascript 'preview' %>
-<div id='preview'>
-  <h2 class='live'>Live preview</h2>
+<div id='preview' class='pull-right'>
+  <h2 class='live blue'>Live preview</h2>
   <div class='preview' id='tutorial_preview'><%= markdown (@tutorial.body.to_s) %></div>
 </div>
+<div id='tutorial_form'>
 <%= form_for @tutorial, :html => {:class=> "form"} do |f| %>
   <%= f.error_messages %>
   <p>
-  <%= f.label :title %><br />
-  <%= f.text_field :title %>
+
+    <h3 class='blue'>
+        Title
+    </h3>
+  
+  <%= f.text_field :title, :class=>'span7'%>
   </p>
   <% unless @tutorial.user.present?%>
     <%= f.hidden_field :user_id, :value => current_user.id%>
   <%end%>
 
+    <h3 class='blue'>
+    Gems in this tutorial
+  </h3>
   <p>
-  <%= f.label :ruby_gem_tokens, "Gems in this tutorial" %><br />
   <%= f.text_field :ruby_gem_tokens, "data-pre" => @tutorial.ruby_gems.map(&:attributes).to_json %>
   </p>
   <p>
-  <%= render 'markdown'%>
-  <%= f.label :body %>
-  <%= f.text_area :body%>
+  <p class='pull-right'>
+    <%= render 'markdown'%>
   </p>
-  <p><%= f.submit :class => "button right" %></p>
+  <h3 class='blue'>
+    Body
+  </h3>
+
+  <%= f.text_area :body, :class=> 'span7', :rows=> 15%>
+  </p>
+  <p><%= f.submit :class => "btn large  success span7" %></p>
 <% end %>
+</div>
 <div class='clear'></div>
 

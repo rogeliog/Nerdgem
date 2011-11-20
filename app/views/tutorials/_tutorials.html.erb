@@ -1,17 +1,25 @@
-<div  id="tutorial_wrapper">
+<div>
 
-	<% tutorials.each do |tutorial|%>
-	<div tutorial_id="<%=tutorial.id%>" class="tutorial <%=cycle('odd', 'even')%>">
-		<%= link_to tutorial.title, tutorial, :class=>"no_decoration"%>
+  <% tutorials.each do |tutorial|%>
+    <div class='general_info'>
+      <div class='main'>
 
-		<ul class="right">
-			<% tutorial.ruby_gems.each do |ruby_gem|%>
-			<li class = "inline gem_tag"><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></li>
-			<% end %>
-		</ul>
-    <div class='small user_link'><%= link_to tutorial.user.name, tutorial.user%></div>
-		<div class="clear"></div>
-	</div>
-	<% end %>
-	<div class="clear"></div>
+        <h1><%= link_to tutorial.title, tutorial %></h1>
+        <p>
+      </div>
+      <div class='tags right_tags pull-right'>
+        <div class='tag'><%= link_to tutorial.user.name, tutorial.user%></div>
+      </div>
+      <div class='tags left_tags'>
+        <% tutorial.ruby_gems.each do |ruby_gem|%>
+          <div class='tag'><%= link_to ruby_gem.name, ruby_gem_path(ruby_gem) %></div>
+        <%end%>
+        </p>
+      </div>
+      <% if clear_after_tutorial? %>
+        <div class='clear'></div>
+      <% end %>
+
+    </div>
+  <% end %>
 </div>
