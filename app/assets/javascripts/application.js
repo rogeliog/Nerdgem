@@ -4,5 +4,6 @@
 //= require jquery.easing-1.3.pack
 //= require jquery.fancybox-1.3.4.pack
 //= require jquery.tokeninput
+//= require bootstrap_tabs
 //= require ruby_gems
 //= require nerd_gem

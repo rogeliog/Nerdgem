@@ -1,0 +1,8 @@
+
+<% users.each do |user|%>
+  <div class='general_info_alt'>
+    <p class='pull-right'><%= user.email %></p>
+    <h1><%= link_to user.name.titleize, user %></h1>
+    <div class='clear'></div>
+  </div>
+<%end%>

@@ -1,0 +1,35 @@
+<h1>Results for <%= params[:q]%></h1>
+<ul class='tabs'>
+  <li class="<%= set_active('Tutorial', @array)%>"><%= link_to "Tutorials (#{@tutorials.size})", "#tutorials_tab" %></li>
+  <li class="<%= set_active('User', @array)%>" ><%= link_to "Users (#{@users.size})", "#users_tab" %></li>
+  <li class="<%= set_active('RubyGem', @array)%>"><%= link_to "Ruby Gems (#{@ruby_gems.size})", "#ruby_gems_tab" %></li>
+</ul>
+<div class="pill-content">
+  <div id='tutorials_tab' class="<%= set_active('Tutorial', @array)%>">
+    <% if @tutorials.present?%>
+      <%= render :partial => 'tutorials', :locals => {:tutorials => @tutorials}%>
+    <% else %>
+      <%= render :partial => 'no_matches', :locals => {:name => "tutorials"}%>
+    <% end %>
+  </div>
+
+  <div id='users_tab' class="<%= set_active('User', @array)%>">
+    <% if @users.present?%>
+      <%= render :partial => 'users/users', :locals => {:users => @users}%>
+    <% else %>
+      <%= render :partial => 'no_matches', :locals => {:name => "users"}%>
+    <% end %>
+  </div>
+
+  <div id='ruby_gems_tab' class="<%= set_active('RubyGem', @array)%>">
+    <% if @ruby_gems.present?%>
+      <%= render :partial => 'ruby_gems/ruby_gems', :locals => {:ruby_gems => @ruby_gems}%>
+    <% else %>
+      <%= render :partial => 'no_matches', :locals => {:name => "ruby_gems"}%>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $('.tabs').tabs();
+</script>

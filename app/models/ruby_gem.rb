@@ -8,6 +8,10 @@ class RubyGem < ActiveRecord::Base
     self.info = {}
   end
 
+  def self.search(params="")
+    params.present? ? where("name LIKE ?", "%#{params}%") : scoped
+  end
+
   def get_info
     if self.info.blank? or self.expired_info?
       self.info = JSON.load(RestClient.get "https://rubygems.org/api/v1/gems/#{self.name}.json") rescue {}

@@ -21,51 +21,52 @@
               <ul class="nav">
                 <li><%=link_to "Home", tutorials_path%></li>
                 <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
-                <li><%=link_to "New tutorial", new_tutorial_path%></li>
+                <% if current_user%>
+                  <li><%=link_to "New tutorial", new_tutorial_path%></li>
+                <%end %>
               </ul>
               <div class='pull-right'>
-                <%= form_tag tutorials_path %>
-                <%= text_field_tag :repo, "", :placeholder=>"Find a tutorial" %>
+                <%= form_tag find_tutorials_path, :method => 'get' %>
+                <%= text_field_tag :q, "", :placeholder=>"Find knowledge", :value => params[:q] %>
               </form>
               <ul>
                 <% if current_user%>
-                  <li><%= link_to "Profile", edit_user_path(current_user)%></li>
                   <li><%= link_to "Sign out", destroy_user_session_path%></li>
                 <%else%>
                   <li><%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %></li>
                 <%end%>
               </ul>
-              </div>
             </div>
           </div>
         </div>
-
-        <div class='span4 offset4'>
-          <% if current_user%>
-            <div id='session_links'>
-              <%= link_to "Profile", edit_user_path(current_user)%>
-              <%= link_to "Sign out", destroy_user_session_path%>
-            </div>
-          <%else%>
-            <div class="sign_in_with_github lighter">
-              <%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %>
-            </div>
-          <%end%>
-        </div>
       </div>
 
-      <div id="content" class="span16">
-        <% flash.each do |name, msg| %>
-            <%= content_tag :div, msg, :class => notice_trans(name) %>
-        <% end %>
-
-        <div id='title'>
-          <%= content_tag :h1, yield(:title) if show_title? %>
-        </div>
-        <%= yield %>
+      <div class='span4 offset4'>
+        <% if current_user%>
+          <div id='session_links'>
+            <%= link_to "Profile", edit_user_path(current_user)%>
+            <%= link_to "Sign out", destroy_user_session_path%>
+          </div>
+        <%else%>
+          <div class="sign_in_with_github lighter">
+            <%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %>
+          </div>
+        <%end%>
       </div>
     </div>
-  </body>
+
+    <div id="content" class="span16">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :class => notice_trans(name) %>
+      <% end %>
+
+      <div id='title'>
+        <%= content_tag :h1, yield(:title) if show_title? %>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+</body>
 </html>
 
 

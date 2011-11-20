@@ -25,21 +25,21 @@ class Tutorial < ActiveRecord::Base
   end
 
   def self.search(params="")
-    if params.present?
-      list = search_ruby_gems(params)
-      where_clause = %{
-      tutorials.id IN
-      (SELECT v.tutorial_id FROM 
-      (SELECT tutorial_id, count(*) as cnt FROM ruby_gems_tutorials WHERE ruby_gem_id in (#{list}) GROUP BY tutorial_id) v 
-      WHERE v.cnt = #{list.split(",").size})
-      } 
-      # results = params.split(" ").map{ |str| "title LIKE '%#{str}%'"}.compact.join(" OR ")
-      # joins(:ruby_gems).where("title LIKE ? OR #{where_clause} OR #{results} ","%#{params}%")
+    params.present? ? where("title LIKE ?", "%#{params}%") : scoped
+    #   list = search_ruby_gems(params)
+    #   where_clause = %{
+    #   tutorials.id IN
+    #   (SELECT v.tutorial_id FROM 
+    #   (SELECT tutorial_id, count(*) as cnt FROM ruby_gems_tutorials WHERE ruby_gem_id in (#{list}) GROUP BY tutorial_id) v 
+    #   WHERE v.cnt = #{list.split(",").size})
+    #   } 
+    #   # results = params.split(" ").map{ |str| "title LIKE '%#{str}%'"}.compact.join(" OR ")
+    #   # joins(:ruby_gems).where("title LIKE ? OR #{where_clause} OR #{results} ","%#{params}%")
 
-      joins(:ruby_gems).where("title LIKE ? OR #{where_clause}","%#{params}%").uniq
-    else
-      return ordered
-    end
+    #   joins(:ruby_gems).where("title LIKE ? OR #{where_clause}","%#{params}%").uniq
+    # else
+    #   return ordered
+    # end
   end
 
   def related_tutorials

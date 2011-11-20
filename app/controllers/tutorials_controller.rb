@@ -25,6 +25,14 @@ class TutorialsController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def find
+
+    @users = User.search(params[:q]).limit(20)
+    @tutorials = Tutorial.search(params[:q]).limit(20)
+    @ruby_gems = RubyGem.search(params[:q]).limit(20)
+    @array = [@tutorials, @users, @ruby_gems]
+  end
 
   def edit
     @tutorial = Tutorial.find(params[:id])

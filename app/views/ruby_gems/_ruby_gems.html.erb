@@ -1,0 +1,18 @@
+<% ruby_gems.each do |ruby_gem|%>
+<div class='general_info_alt'>
+  <h1><%= link_to ruby_gem.name.capitalize, ruby_gem %></h1>
+  <p id='authors', class='pull-right'><%= ruby_gem.info['authors']%></p>
+  <div class='clear'></div>
+  <%= ruby_gem.info['info']%><br />
+  <ul>
+    <% if ruby_gem.info['homepage_uri'].present?%>
+      <li><%= link_to "Homepage", ruby_gem.info['homepage_uri'], :target => :blank%></li>
+    <%end%>
+
+    <% if ruby_gem.info['source_code_uri'].present?%>
+      <li><%= link_to "Source code", ruby_gem.info['source_code_uri'], :target => :blank%></li>
+    <%end%>
+  </ul>
+  <div class='clear'></div>
+</div>
+<%end%>

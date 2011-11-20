@@ -1,7 +1,11 @@
 Nerdgem::Application.routes.draw do
   resources :authentications
 
-  resources :tutorials
+  resources :tutorials do
+    collection do
+      get 'find'
+    end
+  end
   resources :welcome
   resources :ruby_gems
   devise_for :users, :controllers => {:registrations => 'registrations'}

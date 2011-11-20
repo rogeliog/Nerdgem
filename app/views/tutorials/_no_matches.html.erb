@@ -1,0 +1,10 @@
+<%= form_tag find_tutorials_path, :method => 'get' %>
+  <h3 class='blue'>
+    No match found, feel free to search again...
+  </h3>
+
+  <%= text_field_tag :q, "", :placeholder=>"Find a #{name.humanize.downcase.singularize}"  %>
+
+</form>
+<h2 style='margin: 20px 0 10px 0;'>Here are our top <%= name.humanize.downcase%></h2>
+<%= render :partial => "#{name}/#{name}", :locals => {name.to_sym => eval("top_#{name}")}%>

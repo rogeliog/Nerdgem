@@ -1,7 +1,7 @@
 <div id='side' class='span4 pull-right'>
   <h3>Top Tutorials</h3>
   <ul>
-    <% Tutorial.limit(5).each do |tutorial|%>
+    <% top_tutorials.each do |tutorial|%>
       <li>
       <%= link_to tutorial.title, tutorial%><br />
       <p><%= tutorial.ruby_gems_names.join(", ")%></p>
@@ -11,14 +11,14 @@
 
   <h3>Top Ruby Gems</h3>
   <ul>
-    <% RubyGem.limit(5).offset(100).each do |gem|%>
+    <% top_ruby_gems.each do |gem|%>
       <li> <%= link_to gem.name, gem%></li>
     <%end%>
   </ul>
 
   <h3>Top Users</h3>
   <ul>
-    <% User.limit(5).each do |user|%>
+    <% top_users.each do |user|%>
       <li> <%= link_to user.name, user%> </li>
     <%end%>
   </ul>
@@ -26,8 +26,12 @@
 
 <div class='span12 pull-left'>
   <div class='hero-unit' id='billboard'>
-    <h1> Welcome to Nerdgem!</h1>
-    <h3 class='blue'>Social Ruby knowledge and more...</h3>
+    <h2> Welcome home,</h2>
+    <h1> This is Nerdgem</h1>
+    <ul>
+      <li><h4 class='blue'>The best way to share your Ruby wisdom.</h4></li>
+      <li><h4 class='blue'>You will find social Ruby knowledge and more.</h4></li>
+    </ul>
   </div>
   <%= render :partial => 'tutorials', :locals =>{ :tutorials => @tutorials} %>
 </div>
