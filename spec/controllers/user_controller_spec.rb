@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe UserController do
+# describe UserController do
 
-end
+# end

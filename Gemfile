@@ -12,6 +12,7 @@ gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
 gem "acts_as_markup"
+gem 'pygmentize'
 
 # Rails 3.1 - Asset Pipeline
 gem 'json'
@@ -19,7 +20,7 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'sprockets'
-gem 'pygmentize'
+
 
 # Rails 3.1 - JavaScript
 gem 'jquery-rails'

@@ -9,4 +9,3 @@ OmniAuth.config.mock_auth[:github] = {
   'credentials' => { 'token' => 'octodex' },
   "extra" => {"user_hash" => INFO}
 }
-
