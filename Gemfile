@@ -41,6 +41,7 @@ group :development, :test do
   gem 'capybara',">= 1.0.0"
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'fuubar'
   gem "guard-rspec"
   gem 'growl'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
