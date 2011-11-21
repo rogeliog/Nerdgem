@@ -7,6 +7,7 @@ describe Tutorial do
   end
 
   context 'Validations' do
+
     context 'Is valid' do
       it 'With all parameters' do
         @tutorial.should be_valid
@@ -22,14 +23,15 @@ describe Tutorial do
         @tutorial.body = nil
         @tutorial.should_not be_valid
       end
-      # it 'Without a user' do
-      #   @tutorial.user_id = nil
-      #   @tutorial.should_not be_valid
-      # end
+      it 'Without a user' do
+        @tutorial.user_id = nil
+        @tutorial.should_not be_valid
+      end
 
     end
 
   end
+
   context 'Instance Methods' do
 
     describe '.ruby_gem_tokens' do
@@ -75,16 +77,14 @@ describe Tutorial do
     describe '.search' do
       context 'With a search param' do
         before do
-          @tutorial_t = Factory(:tutorial, :title =>"Random title")
-          @tutorial_g1 = Factory(:tutorial, :ruby_gems => [Factory(:ruby_gem, :name => "Cancan")])
-          @tutorial_g2 = Factory(:tutorial, :ruby_gems => [RubyGem.find_by_name("Cancan"),Factory(:ruby_gem, :name => "Devise")])
-
+          @tutorial_1 = Factory(:tutorial, :title =>"Random title")
+          @tutorial_2 = Factory(:tutorial, :title =>"Some other title")
         end
-        it 'Returns the tutorials name like params' do
-          Tutorial.search("Random title").should == ([@tutorial_t])
+        it 'Returns the tutorials where name is like params' do
+          Tutorial.search("Random title").should  include @tutorial_1
         end
-        it 'Returns the tutorials that contain the params gems' do
-          Tutorial.search("Cancan or other gem").should == ([@tutorial_g1, @tutorial_g2])
+        it 'Does not returns the tutorials where name is not like params' do
+          Tutorial.search("Random title").should_not include @tutorial_2
         end
 
       end
@@ -92,6 +92,69 @@ describe Tutorial do
         it 'Returns all the tutorials' do
           Tutorial.search.should == (Tutorial.all)
         end
+      end
+    end
+
+    describe '.related_tutorials' do
+      context 'When the tutorial has ruby gems' do
+        before do
+          @ruby_gem_1 = Factory(:ruby_gem, :name => 'First')
+          @ruby_gem_2 = Factory(:ruby_gem, :name => 'Second')
+          @ruby_gem_3 = Factory(:ruby_gem, :name => 'Third')
+
+          @tutorial.ruby_gems = [@ruby_gem_1, @ruby_gem_2]
+          @tutorial_1 = Factory(:tutorial, :ruby_gems=> [@ruby_gem_1])
+          @tutorial_2 = Factory(:tutorial, :ruby_gems=> [@ruby_gem_2])
+          @tutorial_3 = Factory(:tutorial, :ruby_gems=> [@ruby_gem_3])
+        end
+        it 'Returns the tutorials that are related to those gems' do
+          @tutorial.related_tutorials.should == ([@tutorial,@tutorial_1, @tutorial_2])
+        end
+        it 'Does not returns the tutorials that are not related to those gems' do
+          @tutorial.related_tutorials.should_not include @tutorial_3
+        end
+
+      end
+      context 'When the tutorial does not has ruby gems' do
+        it 'Returns only it self' do
+          @tutorial.related_tutorials.should == [@tutorial]
+        end
+
+      end
+
+
+    end
+
+    describe '.ruby_gem_ids' do
+      before do
+        @ruby_gem_1 = Factory(:ruby_gem, :name => 'First')
+        @ruby_gem_2 = Factory(:ruby_gem, :name => 'Second')
+        @tutorial.ruby_gems = [@ruby_gem_1, @ruby_gem_2]
+      end
+
+      it 'Returns an array with the related ruby gem names' do
+        @tutorial.ruby_gems_ids.should eql([@ruby_gem_1.id,@ruby_gem_2.id])
+      end
+
+      it 'Does not returns the ruby gems that are not related' do
+        @ruby_gem = Factory(:ruby_gem)
+        @tutorial.ruby_gems_names.should_not include(@ruby_gem.id)
+      end
+    end
+    describe '.ruby_gem_names' do
+      before do
+        @tutorial.ruby_gems = [Factory(:ruby_gem, :name => 'First'),
+                               Factory(:ruby_gem, :name => 'Second'),
+                               Factory(:ruby_gem, :name => 'Third')]
+      end
+
+      it 'Returns an array with the related ruby gem names' do
+        @tutorial.ruby_gems_names.should eql(['First','Second','Third'])
+      end
+
+      it 'Does not returns the ruby gems that are not related' do
+        @ruby_gem = Factory(:ruby_gem)
+        @tutorial.ruby_gems_names.should_not include(@ruby_gem.name)
       end
     end
   end
