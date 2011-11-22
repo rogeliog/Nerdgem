@@ -1,5 +1,7 @@
 <%= javascript 'ruby_gems' %>
+<div id='gem'>
 <%= render :partial => 'ruby_gems/ruby_gems', :locals => {:ruby_gems => [@ruby_gem]}%>
+</div>
 
 <h2>Tutorials</h2>
 <%= render :partial => "tutorials/tutorials", :locals => {:tutorials => @ruby_gem.tutorials}%>

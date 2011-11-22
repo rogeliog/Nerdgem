@@ -33,6 +33,10 @@ Nerdgem::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+
   OmniAuth.config.test_mode = true
   GITHUB_INFO = {
     "id"=> "220439",

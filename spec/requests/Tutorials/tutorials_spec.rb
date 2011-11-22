@@ -1,17 +1,13 @@
 require 'spec_helper'
 
 describe "Tutorials" do
-  # include Devise::TestHelpers
+
   before (:each) do
-    # sign_in @user
     @tutorial_1 = Factory(:tutorial, :title => "Devise intro tutorial")
     @tutorial_2 = Factory(:tutorial, :title => "Cancan 123")
   end
-  let(:user){@user}
 
   describe 'tutorials index recent list' do
-    before do
-    end
 
     it 'I can see a list of tutorials' do
       visit tutorials_path

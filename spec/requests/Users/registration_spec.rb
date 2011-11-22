@@ -7,6 +7,6 @@ describe 'User Registration' do
     visit root_path
     click_link "github_link"
     visit root_path
-    page.should have_content 'PROFILE SIGN OUT'
+    page.should have_content 'Sign out'
   end
 end

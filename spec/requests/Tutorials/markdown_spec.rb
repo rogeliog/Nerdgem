@@ -1,12 +1,14 @@
+
 require 'spec_helper'
 
 describe 'Markdown syntax for tutorial' do
-
   before do
     @html_body = "This is a simple body\n## And this will become an h2\n * But this is a list item"
     @code_body = "~~~.ruby\n  puts 'chino' \n~~~"
+    sign_in
   end
   it 'can add HTML tags to the tutorial body with markdown' do
+
     visit new_tutorial_path
     fill_in "tutorial_title", :with => "The title"
     fill_in "tutorial_body", :with => @html_body

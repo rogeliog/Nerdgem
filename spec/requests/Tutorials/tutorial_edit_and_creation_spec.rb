@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe 'Tutorial edit and creation' do
+  before(:each) do
+    sign_in
+  end
 
   describe 'Tutorial creation' do
     it 'Can create a tutorial' do

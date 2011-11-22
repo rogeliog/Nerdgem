@@ -1,10 +1,9 @@
-
 require 'spec_helper'
 
 describe TutorialsController do
   before do
-    # @user = Factory(:user, :email=>"elnuebo@nossd.com")
-    # controller.stub(:current_user).and_return(@user)
+    @user = Factory(:user, :email=>"elnuebo@nossd.com")
+    controller.stub(:current_user).and_return(@user)
     @tutorial = Factory(:tutorial)
   end
 
@@ -14,7 +13,7 @@ describe TutorialsController do
     end
     it 'Gets all the tutorials' do
       get 'index'
-      assigns(:tutorials).should eql(Tutorial.all)
+      assigns(:tutorials).should == (Tutorial.all)
     end
   end
 
