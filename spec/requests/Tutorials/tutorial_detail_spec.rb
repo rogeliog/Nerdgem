@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe 'Tutorial detail' do
 
   it 'Shows the tutorial detail' do
