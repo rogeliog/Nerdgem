@@ -26,8 +26,8 @@
                 <%end %>
               </ul>
               <div class='pull-right'>
-                <%= form_tag find_tutorials_path, :method => 'get' %>
-                <%= text_field_tag :q, "", :placeholder=>"Find knowledge", :value => params[:q] %>
+                <%= form_tag find_tutorials_path, :method => 'get', :id => 'search_form' %>
+                <%= text_field_tag :q, "", :placeholder=>"Find knowledge", :value => params[:q], :id => 'search_q' %>
               </form>
               <ul>
                 <% if current_user%>

@@ -4,7 +4,7 @@
   <li class="<%= set_active('User', @array)%>" ><%= link_to "Users (#{@users.size})", "#users_tab" %></li>
   <li class="<%= set_active('RubyGem', @array)%>"><%= link_to "Ruby Gems (#{@ruby_gems.size})", "#ruby_gems_tab" %></li>
 </ul>
-<div class="pill-content">
+<div class="pill-content" id='search_results'>
   <div id='tutorials_tab' class="<%= set_active('Tutorial', @array)%>">
     <% if @tutorials.present?%>
       <%= render :partial => 'tutorials', :locals => {:tutorials => @tutorials}%>

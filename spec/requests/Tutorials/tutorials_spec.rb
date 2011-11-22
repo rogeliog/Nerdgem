@@ -22,7 +22,7 @@ describe "Tutorials" do
       current_path.should eql(tutorial_path(@tutorial_1))
     end
 
-    it 'I can see the related ruby gems for each tutorial' do
+    it 'I can see the related ruby gems for each tutorial', :js => true do
       visit tutorials_path
       page.should have_content(@tutorial_1.ruby_gems.first.name)
       page.should have_content(@tutorial_2.ruby_gems.first.name)

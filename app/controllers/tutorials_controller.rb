@@ -1,8 +1,8 @@
 class TutorialsController < ApplicationController
 
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:find]
   def index
-    @tutorials = Tutorial.search(params[:search])
+    @tutorials = Tutorial.ordered
   end
 
   def show
@@ -27,7 +27,6 @@ class TutorialsController < ApplicationController
   end
   
   def find
-
     @users = User.search(params[:q]).limit(20)
     @tutorials = Tutorial.search(params[:q]).limit(20)
     @ruby_gems = RubyGem.search(params[:q]).limit(20)

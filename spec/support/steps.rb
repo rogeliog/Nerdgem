@@ -7,4 +7,8 @@ module Steps
     visit root_path
     click_link 'github_link'
   end
+
+  def press_enter_on field
+      find_field(field).native.send_key(:enter)
+  end
 end

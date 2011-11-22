@@ -14,7 +14,7 @@ RSpec.configure do |config|
   config.include(Steps)
   config.mock_with :rspec
 
-  config.before(:suite) do
+ config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
 
@@ -25,7 +25,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
+
   config.infer_base_class_for_anonymous_controllers = false
 end
 
