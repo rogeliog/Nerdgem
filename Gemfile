@@ -42,6 +42,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'fuubar'
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
   gem "guard-rspec"
   gem 'growl'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i

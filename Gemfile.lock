@@ -90,6 +90,9 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.4.3)
       guard (>= 0.4.0)
+    guard-spork (0.2.1)
+      guard (>= 0.2.2)
+      spork (>= 0.8.4)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.13)
@@ -233,6 +236,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    spork (0.9.0.rc9)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -276,6 +280,7 @@ DEPENDENCIES
   fuubar
   growl
   guard-rspec
+  guard-spork
   jquery-rails
   json
   launchy
@@ -295,6 +300,7 @@ DEPENDENCIES
   ruby-debug19
   sass
   selenium-client
+  spork (> 0.9.0.rc)
   sprockets
   sqlite3 (>= 1.3.4)
   thin
