@@ -11,15 +11,5 @@ module ApplicationHelper
     end
   end
 
-  def top_tutorials size=5
-    Tutorial.limit(size)
-  end
 
-  def top_users size=5
-    User.limit(size)
-  end
-
-  def top_ruby_gems size=5
-    RubyGem.limit(size).offset(100)
-  end
 end

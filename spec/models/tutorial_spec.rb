@@ -95,6 +95,11 @@ describe Tutorial do
       end
     end
 
+    describe 'self.top_tutorials' do
+      it 'Returns the top tutorials' do
+        pending 'Need to get a good top tutorials query'
+      end
+    end
     describe '.related_tutorials' do
       context 'When the tutorial has ruby gems' do
         before do
@@ -141,6 +146,7 @@ describe Tutorial do
         @tutorial.ruby_gems_names.should_not include(@ruby_gem.id)
       end
     end
+
     describe '.ruby_gem_names' do
       before do
         @tutorial.ruby_gems = [Factory(:ruby_gem, :name => 'First'),

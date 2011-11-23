@@ -1,4 +1,4 @@
-<%= form_tag find_tutorials_path, :method => 'get' %>
+<%= form_tag find_tutorials_path, :method => 'get', :id => "#{name.downcase.singularize}_search" %>
   <h3 class='blue'>
     No match found, feel free to search again...
   </h3>
@@ -7,4 +7,4 @@
 
 </form>
 <h2 style='margin: 20px 0 10px 0;'>Here are our top <%= name.humanize.downcase%></h2>
-<%= render :partial => "#{name}/#{name}", :locals => {name.to_sym => eval("top_#{name}")}%>
+<%= render :partial => "#{name}/#{name}", :locals => {name.to_sym => eval("#{name.classify}.top_#{name}")}%>

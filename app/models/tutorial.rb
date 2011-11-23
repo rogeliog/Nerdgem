@@ -28,6 +28,10 @@ class Tutorial < ActiveRecord::Base
     params.present? ? where("title LIKE ?", "%#{params}%") : scoped
   end
 
+  def self.top_tutorials size=5
+    limit(size)
+  end
+
   def related_tutorials
     ([self] + Tutorial.joins(:ruby_gems).where("ruby_gems.id IN (#{ruby_gems_ids.join(',')})")).uniq
   end

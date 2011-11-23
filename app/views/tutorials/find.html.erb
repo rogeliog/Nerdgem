@@ -1,8 +1,8 @@
 <h1>Results for <%= params[:q]%></h1>
 <ul class='tabs'>
-  <li class="<%= set_active('Tutorial', @array)%>"><%= link_to "Tutorials (#{@tutorials.size})", "#tutorials_tab" %></li>
-  <li class="<%= set_active('User', @array)%>" ><%= link_to "Users (#{@users.size})", "#users_tab" %></li>
-  <li class="<%= set_active('RubyGem', @array)%>"><%= link_to "Ruby Gems (#{@ruby_gems.size})", "#ruby_gems_tab" %></li>
+  <li class="<%= set_active('Tutorial', @array)%>"><%= link_to "Tutorials (#{@tutorials.size})", "#tutorials_tab",:id => "tutorials_tab_trigger"  %></li>
+  <li class="<%= set_active('User', @array)%>" ><%= link_to "Users (#{@users.size})", "#users_tab", :id => "users_tab_trigger"  %></li>
+  <li class="<%= set_active('RubyGem', @array)%>"><%= link_to "Ruby Gems (#{@ruby_gems.size})", "#ruby_gems_tab", :id => "ruby_gems_tab_trigger" %></li>
 </ul>
 <div class="pill-content" id='search_results'>
   <div id='tutorials_tab' class="<%= set_active('Tutorial', @array)%>">

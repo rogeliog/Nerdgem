@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     self.role == 'member'
   end
 
+  def self.top_users size=5
+    limit(size)
+  end
+
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?
     self.name = omniauth['user_info']['name'] if name.blank?
