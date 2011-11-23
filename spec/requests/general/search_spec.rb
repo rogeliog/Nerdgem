@@ -93,7 +93,7 @@ describe 'Searching actions' do
     end
   end
 
-  describe 'User search' do
+  describe 'User search.' do
     before do
       @user_1 = Factory(:user, :name => 'Foo Bar')
       @user_2 = Factory(:user, :name => 'Dhh')
@@ -112,8 +112,8 @@ describe 'Searching actions' do
     end
 
 
-    context 'When there are no users that match the search' do
-      it 'I can see the apropiate feedback', :js => true do
+    context 'When there are no users that match the search.' do
+      it 'I can see the apropiate feedback.', :js => true do
         visit root_path
         fill_in "search_q", :with => 'Ruby on Rails'
         page.evaluate_script("document.forms[0].submit()")
@@ -123,14 +123,14 @@ describe 'Searching actions' do
 
 
       end
-      it 'I can see a list with the top users', :js => true do
+      it 'I can see a list with the top users.', :js => true do
         visit root_path
         fill_in "search_q", :with => 'Ruby on Rails'
         page.evaluate_script("document.forms[0].submit()")
         click_link 'users_tab_trigger'
         within('#search_results') do
-          page.should have_content "here are our top users"
-          user.top_users(5).each do |user|
+          page.should have_content "Here are our top users"
+          User.top_users(3).each do |user|
             page.should have_content user.name
           end
         end
