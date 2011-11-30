@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930001757) do
+ActiveRecord::Schema.define(:version => 20111130221051) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20110930001757) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "info"
+    t.text     "info",       :limit => 255
   end
 
   create_table "ruby_gems_tutorials", :id => false, :force => true do |t|
