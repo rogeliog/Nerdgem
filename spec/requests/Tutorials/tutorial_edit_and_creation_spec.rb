@@ -39,7 +39,7 @@ describe 'Tutorial edit and creation' do
   end
 
   describe 'Tutorial edition' do
-    let(:tutorial){Factory(:tutorial)}
+    let(:tutorial){Factory(:tutorial, :user => User.last)}
 
     it 'I can edit the tutorial information' do
       visit tutorial_path(tutorial)

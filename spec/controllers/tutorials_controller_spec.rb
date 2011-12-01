@@ -11,9 +11,9 @@ describe TutorialsController do
     before do
       Factory(:tutorial)
     end
-    it 'Gets all the tutorials' do
+    it 'Gets the tutorials ordered' do
       get 'index'
-      assigns(:tutorials).should == (Tutorial.all)
+      assigns(:tutorials).should == (Tutorial.ordered)
     end
   end
 
