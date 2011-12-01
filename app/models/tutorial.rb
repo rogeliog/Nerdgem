@@ -25,7 +25,7 @@ class Tutorial < ActiveRecord::Base
   end
 
   def self.search(params="")
-    params.present? ? where("title LIKE ?", "%#{params}%") : scoped
+    params.present? ? where("title #{LIKE} ?", "%#{params}%") : scoped
   end
 
   def self.top_tutorials size=5
@@ -47,7 +47,7 @@ class Tutorial < ActiveRecord::Base
 
   def self.search_ruby_gems(ruby_gems)
     puts ''
-    ruby_gems.split(" ").map{ |rg| RubyGem.where("name LIKE ?", "#{rg}").first.id rescue nil}.uniq.compact.join(',')
+    ruby_gems.split(" ").map{ |rg| RubyGem.where("name #{LIKE} ?", "#{rg}").first.id rescue nil}.uniq.compact.join(',')
   end
 
 end

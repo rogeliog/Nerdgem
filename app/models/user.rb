@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
 
   def self.search(params="")
-    params.present? ? where("name LIKE ?", "%#{params}%") : scoped
+    params.present? ? where("name #{LIKE} ?", "%#{params}%") : scoped
   end
 
   def admin?

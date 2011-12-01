@@ -12,7 +12,7 @@ class RubyGem < ActiveRecord::Base
   end
 
   def self.search(params="")
-    params.present? ? where("name LIKE ?", "%#{params}%") : scoped
+    params.present? ? where("name #{LIKE} ?", "%#{params}%") : scoped
   end
 
   def get_info
