@@ -27,6 +27,18 @@ describe Tutorial do
         @tutorial.user_id = nil
         @tutorial.should_not be_valid
       end
+      
+      it  'Without an estimated time' do
+        @tutorial.estimated_time = nil
+        @tutorial.should_not be_valid
+      end
+
+      it 'With an estimated time that is not valid' do
+        pending
+        @tutorial.estimated_time = 'not_valid'
+        @tutorial.should_not be_valid
+      end
+
 
     end
 

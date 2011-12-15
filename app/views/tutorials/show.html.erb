@@ -13,14 +13,19 @@
 
 <div class='span12'>
   <%= render :partial => 'tutorials', :locals=>{:tutorials => [@tutorial]}%>
+
   <div id='tutorial'>
-    <div class='pull-right'>
-      <% if can? :manage, @tutorial%>
-        <%= link_to "Edit", edit_tutorial_path(@tutorial), :class=> 'btn info' %> 
-        <%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete, :class=> 'btn danger' %> 
-      <% end %>
+    <div class='extra_info'>
+      <div class='pull-right'>
+        <% if can? :manage, @tutorial%>
+          <%= link_to "Edit", edit_tutorial_path(@tutorial), :class=> 'btn info' %> 
+          <%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete, :class=> 'btn danger' %> 
+        <% end %>
+      </div>
+      <p><b>Estimated time: </b><%= @tutorial.estimated_time%></p>
     </div>
     <%= markdown( @tutorial.formated_body) %>
   </div>
+
 </div>
 <div class='clearfix'></div>

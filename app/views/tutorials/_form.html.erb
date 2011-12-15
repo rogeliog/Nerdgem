@@ -4,38 +4,51 @@
   <div class='preview' id='tutorial_preview'><%= markdown (@tutorial.body.to_s) %></div>
 </div>
 <div id='tutorial_form'>
-<%= form_for @tutorial, :html => {:class=> "form"} do |f| %>
-  <%= f.error_messages %>
-  <p>
+  <%= form_for @tutorial, :html => {:class=> "form"} do |f| %>
+    <%= f.error_messages %>
+    <p>
 
     <h3 class='blue'>
-        Title
+      Title
     </h3>
-  
-  <%= f.text_field :title, :class=>'span7'%>
-  </p>
-  <% unless @tutorial.user.present?%>
-    <%= f.hidden_field :user_id, :value => current_user.id%>
-  <%end%>
+
+    <%= f.text_field :title, :class=>'span7'%>
+
+    <% unless @tutorial.user.present?%>
+      <%= f.hidden_field :user_id, :value => current_user.id%>
+    <%end%>
 
     <h3 class='blue'>
-    Gems in this tutorial
-  </h3>
-  <p>
-  <%= f.text_field :ruby_gem_tokens, "data-pre" => @tutorial.ruby_gems.map(&:attributes).to_json %>
-  </p>
-  <p>
-  <p class='pull-right'>
-    <%= render 'markdown'%>
-  </p>
-  <h3 class='blue'>
-    Body
-  </h3>
+      Gems in this tutorial
+    </h3>
 
-  <%= f.text_area :body, :class=> 'span7', :rows=> 15%>
-  </p>
-  <p><%= f.submit :class => "btn large  success span7" %></p>
-<% end %>
+    <p>
+    <%= f.text_field :ruby_gem_tokens, "data-pre" => @tutorial.ruby_gems.map(&:attributes).to_json %>
+    </p>
+
+    <p class='pull-right'>
+    <%= render 'markdown'%>
+    </p>
+
+    <h3 class='blue'>
+      Body
+    </h3>
+
+    <p>
+      <%= f.text_area :body, :class=> 'span7', :rows=> 15%>
+    </p>
+
+
+    <p>
+    <h3 class='blue'>
+      Estimated time
+    </h3>
+
+      <%= f.select :estimated_time, Tutorial::ESTIMATED_TIMES %>
+    </p>
+
+    <p><%= f.submit :class => "btn large  success span7" %></p>
+  <% end %>
 </div>
 <div class='clear'></div>
 

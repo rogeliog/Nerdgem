@@ -1,15 +1,17 @@
 include TutorialsHelper
 class Tutorial < ActiveRecord::Base
-  attr_accessible :title, :body, :user_id, :ruby_gem_tokens
+  attr_accessible :title, :body, :user_id, :ruby_gem_tokens, :estimated_time
 
   acts_as_markdown :body
   belongs_to :user
   has_and_belongs_to_many :ruby_gems
   attr_reader :ruby_gem_tokens
 
-  validates :user_id, :presence => true
-  validates :title, :presence => true
-  validates :body, :presence => true
+  ESTIMATED_TIMES = ['Less than 15 minutes','Between 30 and 60 minutes','More than 60 minutes']
+
+  validates :user_id, :title, :body, :estimated_time, :presence => true
+  # validates :estimated_time, :presence => true, :email_format => true
+
   scope :ordered, order('created_at DESC')
 
   def ruby_gem_tokens=(ids)

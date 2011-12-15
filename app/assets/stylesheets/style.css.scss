@@ -54,6 +54,14 @@ a{color:#049CDB;}
     }
   }
 }
+#tutorial{
+  .extra_info{
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    margin:50px 0 15px 0;
+    padding:10px;
+  }
+}
 
 .no_decoration{
   text-decoration:none;
@@ -78,7 +86,7 @@ a{color:#049CDB;}
     &:hover{
       @include linear_gradient_3(darken(#bfbfbf, 2%), 0%,#bfbfbf, 18%,darken(#bfbfbf, 2%),98%);
     }
-    @include shadow(0px, 1px, 1px, #666);
+    @include shadow(0px, 1px, 1px, #888);
   }
   .right_tags{
     right:10px;
