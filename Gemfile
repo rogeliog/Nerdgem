@@ -1,11 +1,16 @@
 source 'http://rubygems.org'
 source "http://gems.github.com/"
 
+#Rails
 gem 'rails', '>=3.1.0rc6'
+
+#Application
 gem 'devise'
 gem 'omniauth'
 gem 'rake', '0.9.2'
 gem 'cancan'
+gem 'carrierwave'
+gem 'mini_magick'
 
 #Form formatting and code syntax
 gem 'redcarpet'
@@ -21,7 +26,6 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'sprockets'
 
-
 # Rails 3.1 - JavaScript
 gem 'jquery-rails'
 
@@ -33,14 +37,14 @@ group :production do
 end
 
 group :development, :test do 
-  gem 'timecop'
+  # Database 
   gem 'sqlite3', '>=1.3.4'
-  gem 'linecache19'
-  gem 'nifty-generators'
-  gem 'jquery-rails'
+  
+  # Testing suite
   gem 'capybara',">= 1.0.0"
-  gem 'database_cleaner'
+  gem 'timecop'
   gem 'rspec-rails'
+  gem 'database_cleaner'
   gem 'fuubar'
   gem "spork", "> 0.9.0.rc"
   gem "guard-spork"
@@ -49,8 +53,14 @@ group :development, :test do
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'factory_girl_rails'
   gem 'launchy'
-  gem "ruby-debug19"
   gem "selenium-client"
+
+  #Extras
+  gem 'linecache19'
+  gem 'nifty-generators'
+  gem 'jquery-rails'
+  gem "ruby-debug19"
+
 end
 
 gem "mocha", :group => :test

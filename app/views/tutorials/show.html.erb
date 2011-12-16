@@ -16,13 +16,18 @@
 
   <div id='tutorial'>
     <div class='extra_info'>
+
       <div class='pull-right'>
         <% if can? :manage, @tutorial%>
           <%= link_to "Edit", edit_tutorial_path(@tutorial), :class=> 'btn info' %> 
           <%= link_to "Delete", @tutorial, :confirm => 'Are you sure?', :method => :delete, :class=> 'btn danger' %> 
         <% end %>
       </div>
+
       <p><b>Estimated time: </b><%= @tutorial.estimated_time%></p>
+      <% if @tutorial.source_code.present? %>
+        <%= link_to 'Download the source code!', @tutorial.source_code_url.to_s, :class=> 'btn success'%>
+      <% end%>
     </div>
     <%= markdown( @tutorial.formated_body) %>
   </div>

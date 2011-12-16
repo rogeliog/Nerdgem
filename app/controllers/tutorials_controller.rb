@@ -19,6 +19,7 @@ class TutorialsController < ApplicationController
 
   def create
     @tutorial = Tutorial.new(params[:tutorial])
+    @tutorial.user = current_user
     if @tutorial.save
       redirect_to @tutorial, :notice => "Successfully created tutorial."
     else

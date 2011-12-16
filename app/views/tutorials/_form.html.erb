@@ -14,10 +14,6 @@
 
     <%= f.text_field :title, :class=>'span7'%>
 
-    <% unless @tutorial.user.present?%>
-      <%= f.hidden_field :user_id, :value => current_user.id%>
-    <%end%>
-
     <h3 class='blue'>
       Gems in this tutorial
     </h3>
@@ -38,13 +34,14 @@
       <%= f.text_area :body, :class=> 'span7', :rows=> 15%>
     </p>
 
+    <p>
+    <h3 class='blue'> Source code </h3>
+    <%= f.file_field :source_code %>
+    </p>
 
     <p>
-    <h3 class='blue'>
-      Estimated time
-    </h3>
-
-      <%= f.select :estimated_time, Tutorial::ESTIMATED_TIMES %>
+    <h3 class='blue'> Estimated time </h3>
+    <%= f.select :estimated_time, Tutorial::ESTIMATED_TIMES %>
     </p>
 
     <p><%= f.submit :class => "btn large  success span7" %></p>
