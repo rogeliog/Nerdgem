@@ -26,6 +26,8 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'sprockets'
 
+gem 'haml'
+
 # Rails 3.1 - JavaScript
 gem 'jquery-rails'
 
