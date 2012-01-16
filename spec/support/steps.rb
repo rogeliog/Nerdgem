@@ -6,6 +6,7 @@ module Steps
   def sign_in
     visit root_path
     click_link 'github_link'
+    User.last
   end
 
   def press_enter_on field

@@ -10,6 +10,11 @@
 `
 $(document).ready ->
   $("a#inline").fancybox()
+  $('#dropdown-toggle').click (e)->
+    e.preventDefault()
+    $('#profile-dropdown').toggleClass 'open'
+
+    
 
 
 

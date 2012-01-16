@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,6 +12,10 @@ class User < ActiveRecord::Base
 
   def self.search(params="")
     params.present? ? where("name #{LIKE} ?", "%#{params}%") : scoped
+  end
+
+  def pretty_name
+    truncate(name.presence || email, length: 25 )
   end
 
   def admin?
@@ -28,6 +33,8 @@ class User < ActiveRecord::Base
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?
     self.name = omniauth['user_info']['name'] if name.blank?
+    self.image = omniauth['extra']['user_hash']['avatar_url']
+    self.github_profile = omniauth['user_info']['urls']['GitHub'] rescue ''
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'].to_s)
   end
 
