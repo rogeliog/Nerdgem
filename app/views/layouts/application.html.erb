@@ -41,6 +41,7 @@
               </form>
               <ul>
                 <% if current_user%>
+                  <li><%= link_to current_user.name.presence || current_user.email.presence, current_user %></li>
                   <li><%= link_to "Sign out", destroy_user_session_path%></li>
                 <%else%>
                   <li><%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %></li>
