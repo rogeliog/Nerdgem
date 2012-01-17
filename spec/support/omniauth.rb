@@ -8,5 +8,5 @@ OmniAuth.config.mock_auth[:github] = {
   'uid' => '12345',
   'user_info' => USER,
   'credentials' => { 'token' => 'octodex' },
-  "extra" => {"user_hash" => INFO}
+  "extra" => {"user_hash" => {'avatar_url' => '/assests/images/rails.png'}}
 }

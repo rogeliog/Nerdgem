@@ -8,8 +8,10 @@ describe 'User Profile' do
     within '#user' do
       page.should have_content USER['email']
       page.should have_content USER['name']
+      page_with_image 'rails.png'
     end
   end
+
 
   it 'Show the users tutuorials' do
     user = sign_in

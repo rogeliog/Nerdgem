@@ -137,6 +137,10 @@ a{color:#049CDB;}
     a{
       color:#fff;
     }
+    img{
+      position:relative;
+      top:3px;
+    }
   }
   @include rounded(5px);
 }
