@@ -12,7 +12,6 @@ describe 'User Profile' do
     end
   end
 
-
   it 'Show the users tutuorials' do
     user = sign_in
     click_link USER['name']

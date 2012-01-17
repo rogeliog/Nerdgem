@@ -1,10 +1,8 @@
 <h1>
   <%= "Your profile" if current_user == @user %>
 </h1>
-
 <div id='user'>
   <%= render :partial => 'users', :locals => {:users => [@user]} %>
 </div>
-
 <h2>Tutorials</h2>
 <%= render :partial => "tutorials/tutorials", :locals => {:tutorials => @user.tutorials}%>
