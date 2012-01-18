@@ -41,7 +41,7 @@ class Tutorial < ActiveRecord::Base
   end
 
   def related_tutorials
-    ([self] + Tutorial.joins(:ruby_gems).where("ruby_gems.id IN (#{ruby_gems_ids.join(',')})")).uniq
+    ([self] + Tutorial.joins(:ruby_gems).where("ruby_gems.id IN (#{ruby_gems_ids.join(',')})")).uniq if ruby_gems_ids.present?
   end
 
   def ruby_gems_ids
