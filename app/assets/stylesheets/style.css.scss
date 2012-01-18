@@ -177,9 +177,24 @@ a{color:#049CDB;}
 width: 420px;
 border-right: 1px solid #DDD;
 }
+
 .blue {
   color: #049cdb;
   border-bottom-color: #049cdb;
+}
+.action{
+  margin-top:-20px;
+  margin-bottom:30px;
+  .btn.huge {
+    font-size: 20px;
+    line-height: normal;
+    padding: 15px 119px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    display:block;
+    text-align:center;
+  }
 }
 #preview{
   width:500px;

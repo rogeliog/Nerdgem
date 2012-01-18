@@ -1,0 +1,27 @@
+<div id='side' class='span4 pull-right'>
+  <h3>Top Tutorials</h3>
+  <ul>
+    <% Tutorial.top_tutorials.each do |tutorial|%>
+      <li>
+      <%= link_to tutorial.title, tutorial%><br />
+      <p><%= tutorial.ruby_gems_names.join(", ")%></p>
+      </li>
+    <%end%>
+  </ul>
+
+  <h3>Top Ruby Gems</h3>
+  <ul>
+    <% RubyGem.top_ruby_gems.each do |gem|%>
+      <li> <%= link_to gem.name, gem%></li>
+    <%end%>
+  </ul>
+
+  <h3>Top Users</h3>
+  <ul>
+    <% User.top_users.each do |user|%>
+      <li> <%= link_to user.name, user%> </li>
+    <%end%>
+  </ul>
+</div>
+
+
