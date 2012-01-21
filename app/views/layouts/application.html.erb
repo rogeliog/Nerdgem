@@ -18,58 +18,10 @@
   </head>
 
   <body id="<%= params[:controller].parameterize %>">  
-    <div class="container">
+    <div class="container" id="main-wrapper">
       <%# <%= link_to (image_tag 'fork.png', :id => 'fork'), "http://github.com/rogeliog/nerdgem", :target => "_blank", %>%>
 
-      <div id="header" class='row show-grid'>
-
-        <div class="topbar">
-          <div class="fill">
-            <div class="container">
-              <%= link_to 'Nerdgem', root_path, :class => 'brand' %>
-              <ul class="nav">
-                <li><%=link_to "Home", tutorials_path%></li>
-                <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
-                <% if current_user%>
-                  <li><%=link_to "New tutorial", new_tutorial_path%></li>
-                <%end %>
-                <li><%=link_to "About", about_path %></li>
-              </ul>
-              <div class='pull-right'>
-                <%= form_tag find_tutorials_path, :method => 'get', :id => 'search_form' %>
-                <%= text_field_tag :q, "", :placeholder=>"Find knowledge", :value => params[:q], :id => 'search_q' %>
-              </form>
-              <ul>
-                <% if current_user%>
-                  <li><%= link_to (image_tag current_user.image,  width: '23', class: 'pull-right' ), current_user,%></li>
-                  <li> <%= link_to current_user.pretty_name, current_user %> </li>
-                  <li><%= link_to "Sign out", destroy_user_session_path%></li>
-                  </li>
-
-                <%else%>
-                  <li><%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %></li>
-                <%end%>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <a href="http://github.com/rogeliog/Nerdgem", target='_blank'><img style="position: absolute; top: 40px; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
-      </div>
-
-      <div class='span4 offset4'>
-        <% if current_user%>
-          <div id='session_links'>
-            <%= link_to "Profile", edit_user_path(current_user)%>
-            <%= link_to "Sign out", destroy_user_session_path%>
-          </div>
-        <%else%>
-          <div class="sign_in_with_github lighter">
-            <%= link_to "Sign in with Github", "/auth/github", :id =>"github_link" %>
-          </div>
-        <%end%>
-      </div>
-    </div>
+    <%= render 'layouts/header' %>
 
     <div id="content" class="span16">
       <% flash.each do |name, msg| %>
@@ -81,7 +33,11 @@
       </div>
       <%= yield %>
     </div>
+
   </div>
+  <div id='push'></div>
+  <%= render 'layouts/footer'%>
+
 </body>
 </html>
 
