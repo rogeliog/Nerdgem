@@ -94,4 +94,11 @@ describe TutorialsController do
       end
     end
   end
+
+  describe 'add_point' do
+    it 'Should add a point to the tutorial' do
+      points = @tutorial.points.size
+      lambda{ get 'add_point', :id => @tutorial.id}.should change(Point, :count).by(1)
+    end
+  end
 end

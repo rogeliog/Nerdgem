@@ -1,6 +1,6 @@
 class TutorialsController < ApplicationController
 
-  load_and_authorize_resource :except => [:find]
+  load_and_authorize_resource :except => [:find, :add_point]
   def index
     @tutorials = Tutorial.ordered
   end
@@ -51,5 +51,11 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.find(params[:id])
     @tutorial.destroy
     redirect_to tutorials_url, :notice => "Successfully destroyed tutorial."
+  end
+
+  def add_point
+    @tutorial = Tutorial.find(params[:id])
+    @tutorial.add_point(current_user)
+    redirect_to @tutorial
   end
 end

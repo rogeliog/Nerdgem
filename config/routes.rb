@@ -5,6 +5,9 @@ Nerdgem::Application.routes.draw do
     collection do
       get 'find'
     end
+    member do
+      put 'add_point'
+    end
   end
   resources :welcome do
   end

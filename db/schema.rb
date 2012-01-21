@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116115357) do
+ActiveRecord::Schema.define(:version => 20120121201628) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.integer  "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "points", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "tutorial_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120116115357) do
     t.datetime "updated_at"
     t.string   "estimated_time"
     t.string   "source_code"
+    t.integer  "points_count",   :default => 0
   end
 
   create_table "users", :force => true do |t|

@@ -6,6 +6,7 @@ class Tutorial < ActiveRecord::Base
   
   belongs_to :user
   has_and_belongs_to_many :ruby_gems
+  has_many :points, :dependent => :destroy
   attr_reader :ruby_gem_tokens
 
   mount_uploader :source_code, FileUploader
@@ -23,7 +24,7 @@ class Tutorial < ActiveRecord::Base
   end
 
   def self.top_tutorials size=5
-    limit(size)
+    limit(size).order('points_count DESC')
   end
 
   #Instance Methods
@@ -53,6 +54,11 @@ class Tutorial < ActiveRecord::Base
   end
   def ruby_gems_names
     self.ruby_gems.map(&:name)
+  end
+
+  def add_point user
+      point = Point.new(tutorial: self, user: user)
+      point.save
   end
 
   private

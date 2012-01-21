@@ -108,8 +108,17 @@ describe Tutorial do
     end
 
     describe 'self.top_tutorials' do
+      before do
+        @tutorial_1 = Factory(:tutorial)
+        @tutorial_2 = Factory(:tutorial)
+        @tutorial_3 = Factory(:tutorial)
+        Factory(:point, tutorial: @tutorial_1)
+        2.times { Factory(:point, tutorial: @tutorial_3) }
+        3.times { Factory(:point, tutorial: @tutorial_2) }
+      end
+
       it 'Returns the top tutorials' do
-        pending 'Need to get a good top tutorials query'
+        Tutorial.top_tutorials.should == [@tutorial_2, @tutorial_3, @tutorial_1, @tutorial]
       end
     end
     describe '.related_tutorials' do
@@ -173,6 +182,28 @@ describe Tutorial do
       it 'Does not returns the ruby gems that are not related' do
         @ruby_gem = Factory(:ruby_gem)
         @tutorial.ruby_gems_names.should_not include(@ruby_gem.name)
+      end
+    end
+
+    describe '.add_point' do
+      before do
+        @user = Factory(:user)
+      end
+      it 'Creates a point' do
+        lambda{ @tutorial.add_point @user}.should change(Point, :count).by(1)
+      end
+      it 'Assigns the point to the user' do
+        @tutorial.add_point @user
+        @user.points.size.should eql(1)
+      end
+      it 'Assigns the point to the tutorial' do
+        @tutorial.add_point @user
+        @user.points.size.should eql(1)
+      end
+
+      it 'Does not assigns the point if the user has already done that' do
+        @tutorial.add_point @user
+        @tutorial.add_point(@user).should be_false
       end
     end
   end

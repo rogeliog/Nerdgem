@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,:name
   has_many :tutorials, :dependent => :destroy
   has_many :authentications, :dependent => :destroy
+  has_many :points, :dependent => :destroy
 
   def self.search(params="")
     params.present? ? where("name #{LIKE} ?", "%#{params}%") : scoped
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
 
   def password_required?
     (authentications.empty? || !password.blank?) && super
+  end
+
+  def added_point tutorial
+    Point.find_by_user_id_and_tutorial_id(self.id, tutorial.id).present?
   end
 
 end
