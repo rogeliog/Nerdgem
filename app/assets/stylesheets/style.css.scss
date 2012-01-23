@@ -222,6 +222,9 @@ a{
 
 #tutorial_form{
   width: 420px;
+  textarea{
+    height: 420px;
+  }
   border-right: 1px solid #DDD;
 }
 
@@ -246,7 +249,7 @@ a{
 #preview{
   width:500px;
   float:right;
-  #tutorial_preview{overflow-x:auto;overflow-y:scroll; max-height:400px;}
+  #tutorial_preview{overflow-x:auto;overflow-y:scroll; max-height:574px;}
   .highlight{ overflow:auto; }
 }
 
