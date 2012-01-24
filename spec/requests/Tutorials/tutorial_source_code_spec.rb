@@ -29,5 +29,25 @@ describe 'Tutorial Source Code' do
   end
 
 
+  it 'I can add a repo/code link to my tutorials' do
+    visit new_tutorial_path
+    fill_in "tutorial_title", :with => "The title"
+    fill_in "tutorial_body", :with => "Some interesting body"
+    fill_in "tutorial_repo_link", :with => "http://github.com/rogeliog/nerdgem"
+    click_on "Create Tutorial"
+    page.should have_content("Code repository")
+  end
+
+  it 'There is no code repository button when there is no repo link for the tutorial' do
+    visit new_tutorial_path
+    fill_in "tutorial_title", :with => "The title"
+    fill_in "tutorial_body", :with => "Some interesting body"
+    click_on "Create Tutorial"
+    page.should_not have_content("Code repository")
+
+  end
+
+
+
 end
 

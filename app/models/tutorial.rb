@@ -1,6 +1,6 @@
 include TutorialsHelper
 class Tutorial < ActiveRecord::Base
-  attr_accessible :title, :body, :user_id, :ruby_gem_tokens, :estimated_time, :source_code
+  attr_accessible :title, :body, :user_id, :ruby_gem_tokens, :estimated_time, :source_code, :repo_link
 
   acts_as_markdown :body
   

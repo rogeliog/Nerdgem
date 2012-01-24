@@ -25,7 +25,10 @@
       </div>
 
       <p><b>Estimated time: </b><%= @tutorial.estimated_time%></p>
-      <% if @tutorial.source_code.present? %>
+      <% if @tutorial.repo_link? %>
+        <%= link_to 'Code repository', @tutorial.repo_link, :class=> 'btn info', :target => '_blank'%>
+      <% end%>
+      <% if @tutorial.source_code? %>
         <%= link_to 'Download the source code!', @tutorial.source_code_url.to_s, :class=> 'btn success'%>
       <% end%>
     </div>
