@@ -23,4 +23,16 @@ describe 'User Profile' do
     end
   end
 
+  it 'Shows me the user points' do
+    sign_in
+    user = User.find_by_name USER['name']
+    tutorial = Factory(:tutorial, user: user)
+    tutorial_2 = Factory(:tutorial, user: user)
+    2.times{Factory(:point, tutorial: tutorial)}
+    3.times{Factory(:point, tutorial: tutorial_2)}
+    click_link USER['name']
+    within('#user') { page.should have_content("5")}
+  end
+
 end
+

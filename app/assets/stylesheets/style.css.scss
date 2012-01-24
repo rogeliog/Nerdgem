@@ -195,11 +195,17 @@ a{
 }
 .general_info_alt{
   position:relative;
+  min-height:45px;
   margin-bottom:25px;
   margin-top:35px;
   background:darken(#FFF, 7%);
   padding:15px 20px;
   border:1px solid #ddd;
+  .email{
+    position:absolute;
+    bottom:-0px;
+    left:20px;
+  }
   h1{
     display:inline-block;
     padding:5px 10px;

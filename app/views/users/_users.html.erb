@@ -1,6 +1,11 @@
 <% users.each do |user|%>
   <div class='general_info_alt'>
-    <p class='pull-right'><%= user.email %></p>
+    <div id='points'>
+      <p>
+      <%= user.points %> 
+      </p>
+
+    </div>
     <h1>
       <%= link_to user do %>
         <%= image_tag user.image, width: 25 %>
@@ -8,5 +13,6 @@
       <% end %>
     </h1>
     <div class='clear'></div>
+    <p class='email'><%= mail_to user.email %></p>
   </div>
 <%end%>
