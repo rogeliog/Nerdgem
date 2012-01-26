@@ -6,6 +6,7 @@ class RubyGem < ActiveRecord::Base
   serialize :info, Hash
   before_create :set_info
 
+  default_scope order('tutorials_count DESC')
 
   def set_info
     self.info = {}
