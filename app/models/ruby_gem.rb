@@ -12,7 +12,7 @@ class RubyGem < ActiveRecord::Base
     self.info = {}
   end
   def self.top_ruby_gems size=5, offs=100
-    limit(size).offset(offs)
+    limit(size)
   end
 
   def self.search(params="")
