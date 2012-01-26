@@ -11,21 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124001728) do
-
-  create_table "achievements", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "action"
-    t.integer  "value"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20120126172256) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
-    t.integer  "uid"
+    t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120124001728) do
     t.string   "name"
     t.string   "image"
     t.string   "github_profile"
+    t.integer  "tutorials_count",                       :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

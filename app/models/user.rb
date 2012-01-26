@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
             class_name:'Point', 
             foreign_key: :user_id, 
             dependent: :destroy
-
+  
+  default_scope order('tutorials_count DESC')
 
   def self.search(params="")
     params.present? ? where("name #{LIKE} ?", "%#{params}%") : scoped

@@ -4,7 +4,7 @@ class Tutorial < ActiveRecord::Base
 
   acts_as_markdown :body
   
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_and_belongs_to_many :ruby_gems
   has_many :points, :dependent => :destroy
   attr_reader :ruby_gem_tokens
