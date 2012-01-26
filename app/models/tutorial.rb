@@ -3,9 +3,12 @@ class Tutorial < ActiveRecord::Base
   attr_accessible :title, :body, :user_id, :ruby_gem_tokens, :estimated_time, :source_code, :repo_link
 
   acts_as_markdown :body
+
+  # has_and_belongs_to_many :ruby_gems
+  has_many :ruby_gem_tutorials, dependent: :destroy
+  has_many :ruby_gems, through: :ruby_gem_tutorials
   
   belongs_to :user, counter_cache: true
-  has_and_belongs_to_many :ruby_gems
   has_many :points, :dependent => :destroy
   attr_reader :ruby_gem_tokens
 

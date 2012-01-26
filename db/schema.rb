@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126172256) do
+ActiveRecord::Schema.define(:version => 20120126175716) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20120126172256) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ruby_gem_tutorials", :force => true do |t|
+    t.integer  "tutorial_id"
+    t.integer  "ruby_gem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ruby_gem_tutorials", ["ruby_gem_id", "tutorial_id"], :name => "index_ruby_gem_tutorials_on_ruby_gem_id_and_tutorial_id"
 
   create_table "ruby_gems", :force => true do |t|
     t.string   "name"

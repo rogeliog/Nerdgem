@@ -1,5 +1,8 @@
 class RubyGem < ActiveRecord::Base
-  has_and_belongs_to_many :tutorials
+  # has_and_belongs_to_many :tutorials
+  has_many :ruby_gem_tutorials, dependent: :destroy
+  has_many :tutorials, through: :ruby_gem_tutorials
+
   serialize :info, Hash
   before_create :set_info
 
