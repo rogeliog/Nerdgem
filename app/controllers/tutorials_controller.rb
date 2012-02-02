@@ -2,7 +2,13 @@ class TutorialsController < ApplicationController
 
   load_and_authorize_resource :except => [:find, :add_point]
   def index
-    @tutorials = Tutorial.ordered
+    if session[:hello].present?
+      @tutorials = Tutorial.ordered
+    else
+      session[:hello] = true
+      redirect_to hello_path
+    end
+    
   end
 
   def show

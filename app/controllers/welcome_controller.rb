@@ -6,6 +6,6 @@ class WelcomeController < ApplicationController
   end
   
   def hello
-    
+    session[:hello] = true
   end
 end
