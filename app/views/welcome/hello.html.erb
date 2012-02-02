@@ -1,0 +1,14 @@
+<div id='landing'>
+  <div class='logo'>
+    <%= image_tag 'logo_medium.png', height: '300px' %>
+  </div>
+  <div class='title'>
+    <p> Find ruby knowledge </p>
+    <p> Learn about different gems </p>
+    <p> Share it with the world </p>
+    <% unless current_user.present? %>
+      <%= link_to 'Register now!', "/auth/github", class: 'btn info large' %>
+    <% end %>
+    <%= link_to 'Find knowledge!', tutorials_path, class: 'btn success large' %>
+  </div>
+</div>

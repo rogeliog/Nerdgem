@@ -3,14 +3,16 @@
   <div class="topbar">
     <div class="fill">
       <div class="container">
-        <%= link_to 'Nerdgem', root_path, :class => 'brand' %>
         <ul class="nav">
+          <li id='main_logo'>
+          <%= link_to (image_tag 'logo_no_gem.png', height: '33px'), root_path, :class => 'brand' %>
+          </li>
           <li><%=link_to "Home", tutorials_path%></li>
           <li><%=link_to "Tutorials", tutorials_path, :id=>"tutorials"%></li>
           <% if current_user%>
             <li><%=link_to "New tutorial", new_tutorial_path%></li>
           <%end %>
-          <li><%=link_to "About", about_path %></li>
+          <li><%=link_to "About", hello_path %></li>
         </ul>
         <div class='pull-right'>
           <%= form_tag find_tutorials_path, :method => 'get', :id => 'search_form' %>

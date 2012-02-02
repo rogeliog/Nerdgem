@@ -19,5 +19,6 @@ Nerdgem::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   match 'preview' => 'previews#preview', :as => :preview, :via => :post
   match 'about' => 'welcome#about', :as => :about
+  match 'hello' => 'welcome#hello', :as => :hello
   root :to => "tutorials#index"
 end
