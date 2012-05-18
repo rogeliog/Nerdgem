@@ -85,6 +85,9 @@ a{
   padding: 10px 0;
   padding-bottom:20px;
   background: #222;
+  h3, a{
+    margin-top:-10px;
+  }
 }
 #main_logo{
     position: relative;
@@ -97,7 +100,7 @@ a{
 }
 
 #content{
-  margin-top:25px;
+  margin-top:44px;
 }
 
 #billboard{
